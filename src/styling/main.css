@@ -1,0 +1,37 @@
+#container3 {
+    min-width: 75%;
+    max-width: 80%;
+    position: absolute;
+    right: 10px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.grid-item {
+    text-decoration: none;
+    color: black;
+}
+
+.grid-item:hover {
+    color: black;
+}
+
+#grid-content img {
+    width: 100%;
+    min-height: 50vh;
+    max-height: 50vh;
+    margin-bottom: 10px;
+}
+
+#grid-content p {
+  font-weight: 300;
+}
+
+.price {
+  color: grey !important;
+}

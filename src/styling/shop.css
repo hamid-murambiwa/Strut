@@ -1,0 +1,76 @@
+#shop-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.cart-btn img {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.s-b-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.home-btn a {
+  text-decoration: none;
+}
+
+.home-btn a h2 {
+  color: rgb(30, 28, 28);
+  border: 3px solid rgb(30, 28, 28);
+  padding: 10px;
+}
+
+.shop-navigation {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  width: 20%;
+  padding-left: 2%;
+  line-height: 6vh;
+}
+
+.shop-navigation nav {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+}
+
+.shop-navigation a {
+  text-decoration: none;
+  color: black;
+}
+
+.shop-navigation a:hover {
+  text-decoration: underline;
+}
+
+.shop-navigation a strong {
+ font-size: large;
+}
+
+.cart-counter {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-left: -8px;
+  font-size: smaller;
+}

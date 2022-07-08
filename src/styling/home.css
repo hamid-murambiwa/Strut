@@ -1,0 +1,241 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,nav,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+    margin:0;
+    padding:0;
+}
+html,body {
+    margin:0;
+    padding:0;
+    font-size: small;
+}
+
+#container1 {
+    display: flex;
+    width: 100%;
+    height: 65vh;
+}
+
+.header-con {
+  width: 60%;
+  height: 100%;
+  background-image: url('./images/wallpaper.webp');
+  background-repeat: no-repeat;
+  background-size: 110% 110%;
+  background-position-x: -50px;
+}
+
+.iactive {
+  animation-name: shift;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes shift {
+    from {
+      background-position-x: 20%;
+    }
+  
+    to {
+      background-position-x: 0px;
+    }
+}
+
+
+.inactive {
+    animation-name: shift-out;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+}
+  
+  @keyframes shift-out {
+      from {
+        background-position-x: 0px;
+      }
+    
+      to {
+        background-position-x: 20%;
+      }
+}
+
+.nav-active {
+    animation-name: shift-nav;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes shift-nav {
+      from {
+        margin-left: 0px;
+      }
+    
+      to {
+        margin-left: 10%;
+      }
+}
+
+.nav-inactive {
+    animation-name: shift-nav-out;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes shift-nav-out {
+      from {
+        margin-left: 10%;
+      }
+    
+      to {
+        margin-left: 0px;
+      }
+}
+
+.nav-con {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 80px;
+  padding-top: 60px;
+  color: #fff;
+}
+
+.nav-con h1 {
+  margin-right: 15%;
+}
+
+.nav-con nav {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  width: 80%;
+}
+
+.nav-con nav a {
+  font-size: medium;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-con nav a:hover {
+  border-bottom: 2px solid #fff;
+}
+
+.carousel-con {
+    max-width: 40% !important;
+    min-width: 40% !important;
+}
+
+.carousel-item {
+  text-decoration: none;
+    width: 100% !important;
+    min-height: 65vh !important;
+}
+
+#carousel-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover !important;
+  height: 65vh !important;
+  width: 100% !important;
+}
+
+#carousel-content h3 {
+  color: white;
+}
+
+.carousel-btn-con {
+  width: auto !important;
+  gap: 20px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  top: auto !important;
+  background-color: black;
+  opacity: 1 !important;
+  padding: 20px !important;
+}
+
+.carousel-control-next {
+  left: 70px !important;
+}
+
+.shop-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none !important;
+}
+
+.shop-btn:hover {
+  transform: scale(1.01);
+}
+
+.shop-btn h3 {
+  color: black;
+}
+
+.shop-btn img {
+  height: 18px;
+}
+
+.d-con {
+  font-size: smaller;
+  padding: 15%;
+}
+
+.d-con h1 {
+  margin-bottom: 20px;
+}
+
+.d-con p {
+  margin-bottom: 15px;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  width: 1.4rem !important;
+}
+
+#container2 {
+  display: flex;
+  height: 35vh;
+}
+
+.c-2-a {
+  width: 30%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.c-2-b {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3%;
+  font-size: smaller;
+  width: 40%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+.c-2-b:hover {
+  color: black;
+}
+
+.c-2-b h2 {
+  margin-bottom: 10px;
+  font-size: large;
+  word-spacing: 10px;
+  font-weight: bold;
+}
+
+.c-2-c {
+  width: 30%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
