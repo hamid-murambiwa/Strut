@@ -1,83 +1,46 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import StarsRating from 'react-star-rate';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllFurniture } from '../../redux/furnitureItems/furniture';
 import { CartContext } from "../CartContext";
+import { Page, findId, findRoute, findCategoryName, handleSubmit, getDate, sort, decrement, increment } from "../../services/tools";
+import * as apiCalls from '../../services/services';
 import ImageGallery from 'react-image-gallery';
+import img from "../../styling/images/button.png";
+import img2 from "../../styling/images/cancel.png";
 import '../../styling/product.css';
 
 let images = [];
 
-function Page() {
-    if (parseInt(window.location.pathname.slice(-2)) > 9) {
-        return parseInt(window.location.pathname.slice(-2))
-    } else {
-        return parseInt(window.location.pathname.slice(-1))
-    }
-}
-
-const pageNum = Page();
-
 function ProductDisplay() {
+    let [reviews, setReviews] = useState([{
+        id: 'pk',
+        overal_rating: 0,
+        title: "title",
+        description: "reviewDes",
+        furniture_item_id: Page()
+      }]);
+
     const { cart, setCart } = useContext(CartContext);
     const [quantity, setQuantity] = useState(1);
-    console.log(cart);
+    const [message, setMessage] = useState('');
+    const [reviewBtn, setReviewBtn] = useState(false);
+    const [title, setTitle] = useState('');
+    const [reviewDes, setReviewDes] = useState('');
+    const [rating, setRating] = useState(0);
+
+    const [averageRating, setAverageRating] = useState(0);
+
     const dispatch = useDispatch();
     const furniture = useSelector((state) => state.furnitureReducer);
     useEffect(() => {
     dispatch(getAllFurniture());
+    apiCalls.componentDidMount(findId, Page, averageRating, reviews, setReviews, setMessage, message, setAverageRating);
     }, [dispatch]);
 
-    function handleSubmit(item) {
-        let value = false;
-
-        cart.map(e => {
-            if (e.name === item.name) {
-                value = true;
-            }
-        })
-        if (value) {
-            cart.map((i, index) => {
-                if (i.name === item.name) {
-                    cart[index]['quantity'] = i.quantity + quantity;
-                    cart[index]['price'] = quantity === 1 ? i.price + item.price : i.price * quantity; 
-                    setCart(cart);
-                    const data = JSON.stringify(cart);
-                    localStorage.setItem('cart', data);
-                }
-            })
-        } else {
-            item['quantity'] = quantity;
-            item['price'] = item.price * quantity;
-            cart.push(item);
-            setCart(cart);
-            const data = JSON.stringify(cart);
-            localStorage.setItem('cart', data);
-        }
-        window.location.reload();
-    }
-
-    function increment() {
-        setQuantity(quantity + 1);
-    }
-
-    function decrement() {
-        setQuantity(quantity - 1);
-    }
-
-    function sort(price) {
-        let locales = [
-            undefined,
-            'en-US',
-          ];
-          let n = price;
-          let opts = { minimumFractionDigits: 2 };
-          for (let i = 0; i < locales.length; i++) {
-            return n.toLocaleString(locales[i], opts);
-          }
-    }
-
     furniture.map((item) => (
-        (item.id === pageNum) ? (
+        (item.id === Page()) ? (
         images = [
             {
                 original: item.a_image,
@@ -101,15 +64,20 @@ function ProductDisplay() {
 
     return (
         <div id="container3">
+        <div className="prod-nav">
+            <Link to="/shop">FURNITURE</Link> / <a href={findRoute()}>{findCategoryName()}</a>
+        </div>
+        <div className="message">
+            {message}
+        </div>
             <section id="prod-container">
                 <ImageGallery items={images} showPlayButton={false} thumbnailPosition="left" showNav={false} width="100" />
                     {furniture.length !== 0 ? (
                         furniture.map((item) => (
-                            (item.id === pageNum) ? (
+                            (item.id === Page()) ? (
                                 <div className="p-c-con" key={item.id}>
                                     <strong>{item.name}</strong>
                                     <p>R {sort(item.price)}</p>
-                                        {console.log(sort(item.price))}
                                     <strong>Details</strong>
                                     <p>{item.description}</p>
                                     <div>
@@ -118,17 +86,128 @@ function ProductDisplay() {
                                         <li>{item.made}</li>
                                     </div>
                                     <div className="quantity">
-                                        <button type="button" className="q-btn" onClick={() => increment()}>
-                                            +
-                                        </button>
-                                        <p>{quantity}</p>
-                                        <button type="button" className="q-btn" onClick={() => decrement()}>
+                                        <button type="button" className="q-btn" onClick={() => decrement(quantity, setQuantity)}>
                                             -
                                         </button>
+                                        <p>{quantity}</p>
+                                        <button type="button" className="q-btn" onClick={() => increment(quantity, setQuantity)}>
+                                            +
+                                        </button>
                                     </div>
-                                    <button type="button" className="c-btn" onClick={() => handleSubmit(item)}>
+                                    <button type="button" className="c-btn" onClick={() => handleSubmit(item, cart, setCart, quantity, setMessage)}>
                                         ADD TO CART
                                     </button>
+                                    <hr />
+                                    <div className={reviewBtn ? "rating-con+ inactiveBTN" : "rating-con+ activeBTN"} onClick={() => setReviewBtn(true)}>
+                                        <div className="rating-info">
+                                        <strong>REVIEWS</strong>
+                                        <div className="stars-con">
+                                        <p>({reviews.length})</p>
+                                        <StarsRating
+                                        disabled={true}
+                                        value={averageRating}
+                                        />
+                                        </div>
+                                        <strong>+</strong>
+                                        </div>
+                                    </div>
+                                    <div className={reviewBtn ? "rating-con- activeBTN" : "rating-con- inactiveBTN"}>
+                                        <div className="rating-info dotted" onClick={() => setReviewBtn(false)}>
+                                        <strong>REVIEWS</strong>
+                                        <strong>-</strong>
+                                        </div>
+
+                                        <div className="containment2">
+                                        <h4>5.0</h4>
+                                        <StarsRating
+                                        disabled={true}
+                                        value={averageRating}
+                                        />
+                                        <p>{reviews.length} reviews</p>
+                                        </div>
+                                        <button type="button" className="btn btn-primary checkout long" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            WRITE A REVIEW
+                                        </button>
+                                        <strong>{(reviews > 1) ? ("All REVIEWS :") : ("This item has no reviews")}</strong>
+                                        <hr style={{borderTop: "dotted 1px"}} />
+                                        {reviews.map((review, index) => (
+                                                <div className="review-con" key={index}>
+                                                    <div className="review-info">
+                                                        <div className="stars-con">
+                                                            <StarsRating
+                                                            disabled={true}
+                                                            value={review.overal_rating}
+                                                            />
+                                                        </div>
+                                                        <h4>{review.title}</h4>
+                                                        <p>{review.description}</p>
+                                                        <i className="p">Created anonymously {getDate(review.created_at)} ago</i>
+                                                    </div>
+                                                    <hr style={{borderTop: "dotted 1px"}} />
+                                                </div>
+                                        ))}
+
+                                        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog">
+                                            <section className="modal-sub-con">
+                                            <div className="side-bar">
+                                                <img className="modal-img" src={item.a_image} alt={"Image of the " + item.name + " product"} />
+                                                <strong>{item.name}</strong>
+                                            </div>
+                                            <div className="modal-content">
+                                            <div className="modal-header">
+                                                <h5 className="modal-title" id="exampleModalLabel">MY REVIEW</h5>
+                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src={img} alt="close button icon" /></button>
+                                            </div>
+                                            <div className="modal-body">
+                                            <div className="App">
+                                                <i>Required fields are marked with *</i>
+                                                <form onSubmit={() => apiCalls.handleReview(rating, title, reviewDes, Page, findId, setTitle, setReviewDes, setMessage)}>
+                                                    <div className="f-con">
+                                                        <section className="overal">
+                                                            <strong>Overall Rating*</strong>
+                                                            <StarsRating
+                                                            value={rating}
+                                                            onChange={(e) => setRating(e)}
+                                                            />
+                                                            <div className="o-v">
+                                                                <p>Required:Overall Rating</p>
+                                                                <img className="alert-btn" src={img2} alt="alert icon" />
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                    <div className="f-con">
+                                                        <label>Review Title*</label>
+                                                        <input
+                                                        type="text"
+                                                        value={title}
+                                                        placeholder="Title"
+                                                        onChange={(e) => setTitle(e.target.value)}
+                                                        required
+                                                        />
+                                                    </div>
+                                                    <div className="f-con">
+                                                        <label>Review*</label>
+                                                        <textarea
+                                                        type="text"
+                                                        value={reviewDes}
+                                                        placeholder="Review"
+                                                        onChange={(e) => setReviewDes(e.target.value)}
+                                                        required
+                                                        />
+                                                    </div>
+
+                                                    <button type="submit">POST REVIEW</button>
+
+                                                    <div className="message">{message ? <p>{message}</p> : null}</div>
+                                                </form>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </section>
+                                        </div>
+                                        </div>
+                                    </div>
                                 </div>
                             ) : (null)
                         ))
