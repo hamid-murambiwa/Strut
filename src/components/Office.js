@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllFurniture } from '../redux/furnitureItems/furniture';
 
@@ -33,6 +34,9 @@ function Office() {
 
     return (
         <div id="container3">
+        <div className="prod-nav">
+            <Link to="/shop">FURNITURE</Link>
+        </div>
             <h3>OFFICE FURNITURE</h3>
             <section id="grid">
             {furniture.length !== 0 ? (
@@ -40,7 +44,7 @@ function Office() {
                                 (item.category_id === 5) ? (
                                     <a href={item.id} className="grid-item" key={item.id}>
                                         <section id="grid-content">
-                                            <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={item.name + ' image'}  onMouseEnter={() => { toggleActive(index) }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }) }}  />
+                                            <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={item.name + ' image'}  onMouseEnter={() => { toggleActive(index) }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }) }} onTouchStart={() => { toggleActive(index) }} onTouchEnd={() => { setIsActive1({ ...isActive1, activeObject: null }) }} />
                                             <p>{item.name}</p>
                                             <p className="price">R {sort(item.price)}</p>
                                         </section>

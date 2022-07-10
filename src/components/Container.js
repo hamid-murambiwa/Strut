@@ -12,12 +12,13 @@ import Bedroom from "./Bedroom";
 import StorageMedia from "./StorageMedia";
 import Office from "./Office";
 import Cart from "./Cart";
-import { CartContext } from "./CartContext";
+import { CartContext, ReviewContext } from "./CartContext";
 
 function Container() {
   const [cart, setCart] = useState(useContext(CartContext));
+  const [review, setReview] = useState(useContext(ReviewContext));
 
-  const data = useMemo(() => ({ cart, setCart }), [cart, setCart]);
+  const data = useMemo(() => ({ cart, review, setCart, setReview}), [cart, review, setCart, setReview]);
   return (
     <Router>
     <CartContext.Provider value={data}>
@@ -26,7 +27,6 @@ function Container() {
             <Route path="shop" element={<Shop />}>
               <Route path="/shop" element={<Main />} />
               <Route path="livingRoom" element={<LivingRoom />} />
-              <Route path="livingRoom/:id" element={<ProductDisplay />} />
               <Route path="diningKitchen" element={<DiningKitchen/>} />
               <Route path="bedroom" element={<Bedroom />} />
               <Route path="storageMedia" element={<StorageMedia />} />
