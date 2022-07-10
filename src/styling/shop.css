@@ -7,8 +7,11 @@
   padding-right: 20px;
 }
 
+.cart-btn {
+  text-decoration: none;
+}
+
 .cart-btn img {
-    float: left;
     width: 40px;
     height: 40px;
 }
@@ -20,6 +23,25 @@
   width: 50%;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.s-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+  gap: 20px;
+}
+
+.s-nav a {
+  text-decoration: none;
+  color: black !important;
+}
+
+.s-nav a:hover {
+  text-decoration: underline;
+  color: black !important;
 }
 
 .home-btn a {
@@ -63,7 +85,7 @@
 
 .cart-counter {
   width: 25px;
-  height: 25px;
+  height: 20px;
   border-radius: 50%;
   padding: 8px;
   padding-top: 5px;
@@ -71,6 +93,58 @@
   background-color: black;
   color: white;
   text-align: center;
-  margin-left: -8px;
   font-size: smaller;
+}
+
+@media screen and (max-width: 768px) {
+  .shop-navigation {
+    display: none;
+  } 
+
+  #shop-container nav {
+    display: none;
+  }
+
+  .s-b-con {
+    width: 100%;
+  }
+
+  .btn {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+    font-size: small;
+    font-weight: smaller;
+  }
+
+  .btn:focus {
+    background-color: transparent;
+    border: none !important;
+  }
+
+  .dropdown-menu.show {
+    display: flex;
+    flex-direction: column !important;
+    padding: 10px;
+    background-color: rgb(177, 177, 177) !important;
+    gap: 5px;
+  }
+
+  .dropdown-menu.show a {
+    text-decoration: none;
+    color: black;
+  }
+
+  #container3 {
+    min-width: 100%;
+    max-width: 100%;
+    position: relative !important;
+    right: 0 !important;
+    padding: 10px;
+  }
+
+  #grid {
+    grid-template-columns: repeat(1, 100%);
+  }
 }

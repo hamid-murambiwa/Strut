@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,nav,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
     margin:0;
     padding:0;
@@ -6,12 +8,18 @@ html,body {
     margin:0;
     padding:0;
     font-size: small;
+    font-family: 'Roboto Slab', serif;
 }
 
 #container1 {
     display: flex;
     width: 100%;
     height: 65vh;
+}
+
+
+.mobile-header {
+  display: none;
 }
 
 .header-con {
@@ -238,4 +246,117 @@ html,body {
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: smaller;
+  }
+
+  #container1 {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .header-con {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-con {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15vw;
+    width: 100%;
+    padding: 20px;
+    min-height: 30vh;
+    max-height: 30vh;
+  }
+
+  .nav-con nav {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    z-index: 2 !important;
+  }
+
+  .szh-menu-button {
+    background-color: transparent;
+    border: none !important;
+    color: black;
+    font-size: xx-large;
+    height: min-content;
+  }
+
+  .burger {
+    color: white !important;
+  }
+
+  .carousel-con {
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .carousel-control-next {
+    left: 54px !important;
+  }
+
+  #container2 {
+    flex-direction: column;
+    height: auto !important;
+  }
+
+  .c-2-a {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .c-2-b {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+  }
+
+  .c-2-c {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .szh-menu {
+    margin-top: 5px !important;
+    background-color: black;
+    padding: 15px;
+  }
+
+  .szh-menu li {
+    margin-bottom: 10px;
+  }
+
+  .szh-menu li a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .szh-menu li a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .carousel {
+    min-height: 50vh !important;
+  }
+
+  #carousel-content {
+    min-height: 50vh !important;
+  }
+
+  .d-con {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 50vh !important;
+}
 }
