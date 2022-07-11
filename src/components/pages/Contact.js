@@ -14,8 +14,8 @@ function Contact() {
         <div className="a-n-con">
           <header className="mobile-header">
             <Menu className="menu-icon" menuButton={<MenuButton>&#9776;</MenuButton>}>
-              <MenuItem><a href="/">Home</a></MenuItem>
-              <MenuItem><a href="/shop">Shop</a></MenuItem>
+              <MenuItem><Link to="/">Home</Link></MenuItem>
+              <MenuItem><Link to="/shop">Shop</Link></MenuItem>
               <div className="btn-group dropend">
                 <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   Furniture Categories
@@ -28,8 +28,8 @@ function Contact() {
                   <Link to="/shop/office">OFFICE</Link>
                 </ul>
               </div>
-              <MenuItem><a href="/about">About</a></MenuItem>
-              <MenuItem><a href="/contact">Contact</a></MenuItem>
+              <MenuItem><Link to="/about">About</Link></MenuItem>
+              <MenuItem><Link to="/contact">Contact</Link></MenuItem>
             </Menu>
           </header>
           <div className="home-btn">
