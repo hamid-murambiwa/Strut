@@ -131,3 +131,39 @@ export function Page() {
             return n.toLocaleString(locales[i], opts);
           }
     }
+
+    // export function quantityUp(id, cart, setCart) {
+    //     cart.map((e, index) => {
+    //         if (e.id === id) {
+    //             cart[index]['price'] = e.price + (e.price / e.quantity);
+    //             cart[index]['quantity'] = e.quantity + 1;
+    //             setCart(cart);
+    //             const data = JSON.stringify(cart);
+    //             localStorage.setItem('cart', data);
+    //         }
+    //     })
+    //     window.location.reload();
+    // }
+
+    // export function quantityDown(id, cart, setCart) {
+    //     cart.map((e, index) => {
+    //         if (e.id === id && e.quantity > 1) {
+    //             cart[index]['price'] = e.price - (e.price / e.quantity);
+    //             cart[index]['quantity'] = e.quantity - 1;
+    //             setCart(cart);
+    //             const data = JSON.stringify(cart);
+    //             localStorage.setItem('cart', data);
+    //         }
+    //     })
+    //     window.location.reload();
+    // }
+
+
+
+    // export function handleDelete(index, cart, setCart) {
+    //     cart.splice(index, 1);
+    //     setCart(cart);
+    //     const data = JSON.stringify(cart);
+    //     localStorage.setItem('cart', data);
+    //     window.location.reload();
+    // }

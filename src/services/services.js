@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BACK_END_URL = 'http://localhost:3000/api/v1';
+const BACK_END_URL = 'https://strut-furniture-api.herokuapp.com/api/v1';
 
 // GET ALL categories
 export const fetchAllCategories = async () => {
@@ -24,7 +24,7 @@ export const fetchAllReview = async (categoryId, reviewId) => {
 
 export function componentDidMount(findId, Page, averageRating, reviews, setReviews, setMessage, message, setAverageRating) {
 
-  fetch(`http://localhost:3000/api/v1/categories/${findId()}/furniture_items/${Page()}/reviews`)
+  fetch(`https://strut-furniture-api.herokuapp.com/api/v1/categories/${findId()}/furniture_items/${Page()}/reviews`)
       .then(async response => {
           const data = await response.json();
           reviews = data;
@@ -58,7 +58,7 @@ export let handleReview = async (rating, title, reviewDes, Page, findId, setTitl
       furniture_item_id: Page()
     };
   try {
-    let res = await fetch(`http://localhost:3000/api/v1/categories/${findId()}/furniture_items/${Page()}/reviews`, {
+    let res = await fetch(`https://strut-furniture-api.herokuapp.com/api/v1/categories/${findId()}/furniture_items/${Page()}/reviews`, {
       method: "POST",
       headers: {
           'Content-Type': 'application/json'

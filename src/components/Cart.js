@@ -2,19 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import img from "../styling/images/delete.png";
+import { sort } from "../services/tools";
 import "../styling/cart.css";
-
-function sort(price) {
-    let locales = [
-        undefined,
-        'en-US',
-      ];
-      let n = price;
-      let opts = { minimumFractionDigits: 2 };
-      for (let i = 0; i < locales.length; i++) {
-        return n.toLocaleString(locales[i], opts);
-      }
-}
 
 function Cart() {
     const { cart, setCart } = useContext(CartContext);

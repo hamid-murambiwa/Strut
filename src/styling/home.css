@@ -346,17 +346,79 @@ html,body {
   }
 
   .carousel {
-    min-height: 50vh !important;
+    max-height: 60vh !important;
   }
 
   #carousel-content {
-    min-height: 50vh !important;
+    max-height: 60vh !important;
   }
 
   .d-con {
     display: flex;
     flex-direction: column !important;
     justify-content: center !important;
-    min-height: 50vh !important;
+    max-height: 60vh !important;
+}
+}
+
+@media screen and (max-width: 600px) {
+  .carousel {
+    max-height: 48vh !important;
+  }
+
+  #carousel-content {
+    max-height: 48vh !important;
+  }
+
+  .d-con {
+    max-height: 48vh !important;
+}
+}
+
+@media screen and (max-width: 390px) {
+  .carousel {
+    max-height: 55vh !important;
+  }
+
+  #carousel-content {
+    max-height: 55vh !important;
+  }
+
+  .d-con {
+    max-height: 55vh !important;
+}
+}
+
+@media screen and (max-width: 350px) {
+  .carousel {
+    max-height: 70vh !important;
+  }
+
+  #carousel-content {
+    max-height: 70vh !important;
+  }
+
+  .d-con {
+    max-height: 70vh !important;
+  }
+
+  #carousel-content {
+    max-height: 70vh !important;
+  }
+
+  .carousel-item {
+    max-height: 70vh !important;
+  }
+
+  .d-con {
+    max-height: 70vh !important;
+  }
+
+  .carousel-control-next, .carousel-control-prev {
+    padding: 5px !important;
+}
+
+.carousel-control-next {
+  left: 48px !important;
 }
 }

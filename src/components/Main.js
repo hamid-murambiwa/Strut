@@ -19,7 +19,7 @@ function Main() {
             {categories.length !== 0 ? (
                                 categories.data.map((category) => (
                                     <Link to={category.route} className="grid-item" key={category.id}>
-                                        <section id="grid-content">
+                                        <section id="cat-img">
                                             <img src={category.image} alt={category.name + 'image'} />
                                             <p>{category.name}</p>
                                         </section>

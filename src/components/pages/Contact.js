@@ -58,7 +58,11 @@ function Contact() {
             </div>
         </section>
         <section className="contact-container">
+            <hr />
+            <div className="contact-heading">
             <h4>Contact</h4>
+            </div>
+            <hr />
             <section className="c-info-con">
             <div className="c-con">
                 <h3>NATIONAL HOTLINE</h3>
@@ -70,6 +74,7 @@ function Contact() {
                 <p>Email Us: Contact us via our email address and our staff will get back to you as soon as possible.</p>
             </div>
             </section>
+            <hr />
                 <h1>Leave a message</h1>
             <div id="contacts" className="contact-con">
             <div className="form-con">
@@ -82,6 +87,7 @@ function Contact() {
                     </div>
                 </form>
             </div>
+            <hr />
             </div>
         </section>
         </div>

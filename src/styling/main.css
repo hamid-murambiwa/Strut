@@ -31,9 +31,16 @@
 
 #grid-content img {
     width: 100%;
-    min-height: 50vh;
-    max-height: 50vh;
+    min-height: 40vh;
+    max-height: 40vh;
     margin-bottom: 10px;
+}
+
+#cat-img img {
+  width: 100%;
+  min-height: 35vh !important;
+  max-height: 35vh !important;
+  margin-bottom: 10px;
 }
 
 .price {

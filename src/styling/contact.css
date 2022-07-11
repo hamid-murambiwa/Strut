@@ -119,3 +119,10 @@
         align-items: flex-start !important;
     }
   }
+
+  @media screen and (max-width: 576px) {
+    .contact-heading {
+      padding-left: 30px !important;
+      width: 50%;
+    }
+  }

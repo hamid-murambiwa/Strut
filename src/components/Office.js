@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllFurniture } from '../redux/furnitureItems/furniture';
+import { sort } from "../services/tools";
 
 function Office() {
     const dispatch = useDispatch();
@@ -18,19 +19,6 @@ function Office() {
     function toggleActive(index) {
         setIsActive1({ ...isActive1, activeObject: index });
     }
-
-    function sort(price) {
-        let locales = [
-            undefined,
-            'en-US',
-          ];
-          let n = price;
-          let opts = { minimumFractionDigits: 2 };
-          for (let i = 0; i < locales.length; i++) {
-            return n.toLocaleString(locales[i], opts);
-          }
-    }
-
 
     return (
         <div id="container3">

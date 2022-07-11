@@ -14,7 +14,7 @@ const categoriesReducer = (state = initialCategoriesState, action) => {
 };
 
 export const fetchAllCategories = () => (dispatch) => {
-  axios.get('http://localhost:3000/api/v1/categories')
+  axios.get('https://strut-furniture-api.herokuapp.com/api/v1/categories')
     .then((response) => {
       dispatch({ type: FETCH_ALL_CATEGORIES, payload: response });
     });

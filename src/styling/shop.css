@@ -147,4 +147,9 @@
   #grid {
     grid-template-columns: repeat(1, 100%);
   }
+
+  #grid-content img {
+    min-height: 45vh !important;
+    max-height: 45vh !important;
+  }
 }
