@@ -81,6 +81,7 @@ function About() {
         <strong>
           Buy with confidence - today&apos;s furniture at the best prices direct
           to you. Click here to
+          {' '}
           <Link to="/shop">visit our shop</Link>
         </strong>
       </section>

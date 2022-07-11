@@ -76,7 +76,7 @@ export function handleSubmit(item, cart, setCart, quantity, setMessage) {
   }
   setTimeout(() => {
     window.location.href = `/shop/${Page()}`;
-  }, 200);
+  }, 150);
   setMessage('Item added successfully');
 }
 
