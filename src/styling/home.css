@@ -1,22 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,nav,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
-    margin:0;
-    padding:0;
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
 }
-html,body {
-    margin:0;
-    padding:0;
-    font-size: small;
-    font-family: 'Roboto Slab', serif;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: small;
+  font-family: 'Roboto Slab', serif;
 }
 
 #container1 {
-    display: flex;
-    width: 100%;
-    height: 65vh;
+  display: flex;
+  width: 100%;
+  height: 65vh;
 }
-
 
 .mobile-header {
   display: none;
@@ -39,65 +63,64 @@ html,body {
 }
 
 @keyframes shift {
-    from {
-      background-position-x: 20%;
-    }
-  
-    to {
-      background-position-x: 0px;
-    }
-}
+  from {
+    background-position-x: 20%;
+  }
 
+  to {
+    background-position-x: 0;
+  }
+}
 
 .inactive {
-    animation-name: shift-out;
-    animation-duration: 3s;
-    animation-direction: alternate;
-    -webkit-animation-fill-mode: forwards;
+  animation-name: shift-out;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
 }
-  
-  @keyframes shift-out {
-      from {
-        background-position-x: 0px;
-      }
-    
-      to {
-        background-position-x: 20%;
-      }
+
+@keyframes shift-out {
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: 20%;
+  }
 }
 
 .nav-active {
-    animation-name: shift-nav;
-    animation-duration: 3s;
-    animation-direction: alternate;
-    -webkit-animation-fill-mode: forwards;
+  animation-name: shift-nav;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes shift-nav {
-      from {
-        margin-left: 0px;
-      }
-    
-      to {
-        margin-left: 10%;
-      }
+  from {
+    margin-left: 0;
+  }
+
+  to {
+    margin-left: 10%;
+  }
 }
 
 .nav-inactive {
-    animation-name: shift-nav-out;
-    animation-duration: 3s;
-    animation-direction: alternate;
-    -webkit-animation-fill-mode: forwards;
+  animation-name: shift-nav-out;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @keyframes shift-nav-out {
-      from {
-        margin-left: 10%;
-      }
-    
-      to {
-        margin-left: 0px;
-      }
+  from {
+    margin-left: 10%;
+  }
+
+  to {
+    margin-left: 0;
+  }
 }
 
 .nav-con {
@@ -131,14 +154,14 @@ html,body {
 }
 
 .carousel-con {
-    max-width: 40% !important;
-    min-width: 40% !important;
+  max-width: 40% !important;
+  min-width: 40% !important;
 }
 
 .carousel-item {
   text-decoration: none;
-    width: 100% !important;
-    min-height: 65vh !important;
+  width: 100% !important;
+  min-height: 65vh !important;
 }
 
 #carousel-content {
@@ -150,6 +173,10 @@ html,body {
   width: 100% !important;
 }
 
+.shop-btn h3 {
+  color: black;
+}
+
 #carousel-content h3 {
   color: white;
 }
@@ -159,7 +186,8 @@ html,body {
   gap: 20px;
 }
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
   top: auto !important;
   background-color: black;
   opacity: 1 !important;
@@ -181,10 +209,6 @@ html,body {
   transform: scale(1.01);
 }
 
-.shop-btn h3 {
-  color: black;
-}
-
 .shop-btn img {
   height: 18px;
 }
@@ -202,7 +226,8 @@ html,body {
   margin-bottom: 15px;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
   width: 1.4rem !important;
 }
 
@@ -358,7 +383,7 @@ html,body {
     flex-direction: column !important;
     justify-content: center !important;
     max-height: 60vh !important;
-}
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -372,7 +397,7 @@ html,body {
 
   .d-con {
     max-height: 48vh !important;
-}
+  }
 }
 
 @media screen and (max-width: 390px) {
@@ -386,7 +411,7 @@ html,body {
 
   .d-con {
     max-height: 55vh !important;
-}
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -402,23 +427,16 @@ html,body {
     max-height: 70vh !important;
   }
 
-  #carousel-content {
-    max-height: 70vh !important;
-  }
-
   .carousel-item {
     max-height: 70vh !important;
   }
 
-  .d-con {
-    max-height: 70vh !important;
+  .carousel-control-next,
+  .carousel-control-prev {
+    padding: 5px !important;
   }
 
-  .carousel-control-next, .carousel-control-prev {
-    padding: 5px !important;
-}
-
-.carousel-control-next {
-  left: 48px !important;
-}
+  .carousel-control-next {
+    left: 48px !important;
+  }
 }
