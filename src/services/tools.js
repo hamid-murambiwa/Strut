@@ -75,7 +75,7 @@ export function handleSubmit(item, cart, setCart, quantity, setMessage) {
     localStorage.setItem('cart', data);
   }
   setTimeout(() => {
-    window.location.reload();
+    window.location.href = `/shop/${Page()}`;
   }, 200);
   setMessage('Item added successfully');
 }

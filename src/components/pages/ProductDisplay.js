@@ -103,7 +103,7 @@ function ProductDisplay() {
                     +
                   </button>
                 </div>
-                <button type="button" className="c-btn" onClick={() => handleSubmit(item, cart, setCart, quantity, setMessage)}>
+                <button type="button" className="c-btn" onClick={() => handleSubmit(item, cart, setCart, quantity, setMessage, Page)}>
                   ADD TO CART
                 </button>
                 <div className={reviewBtn ? 'rating-con+ inactiveBTN' : 'rating-con+ activeBTN'} onClick={() => setReviewBtn(true)}>
