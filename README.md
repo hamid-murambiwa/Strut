@@ -2,7 +2,7 @@
 
 # Strut 
 
-> A simple app to buy furniture items
+> A simple app with an online store for furniture items
 
 ## Built With
 
