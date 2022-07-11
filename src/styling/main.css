@@ -1,8 +1,8 @@
 #container3 {
-    min-width: 85%;
-    max-width: 85%;
-    position: absolute;
-    right: 10px;
+  min-width: 85%;
+  max-width: 85%;
+  position: absolute;
+  right: 10px;
 }
 
 #container3 h3 {
@@ -21,19 +21,19 @@
 }
 
 .grid-item {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .grid-item:hover {
-    color: black;
+  color: black;
 }
 
 #grid-content img {
-    width: 100%;
-    min-height: 40vh;
-    max-height: 40vh;
-    margin-bottom: 10px;
+  width: 100%;
+  min-height: 40vh;
+  max-height: 40vh;
+  margin-bottom: 10px;
 }
 
 #cat-img img {
@@ -45,4 +45,12 @@
 
 .price {
   color: grey !important;
+}
+
+.s-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 100%;
 }

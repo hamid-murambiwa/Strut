@@ -1,128 +1,128 @@
 .container5 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  width: 100%;
 }
 
 .c-info-con {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 .c-con {
-    text-align: left;
-    max-width: 20vw;
+  text-align: left;
+  max-width: 20vw;
 }
 
 .c-con h3 {
-    color: rgb(136, 136, 136);
+  color: rgb(136, 136, 136);
 }
 
 .contact-container h1 {
-    margin-bottom: 20px;
-    color: rgb(80, 80, 80);
+  margin-bottom: 20px;
+  color: rgb(80, 80, 80);
 }
 
 .contact-con {
-    min-height: 60vh;
-    width: 100%;
-    padding-bottom: 50px;
-  }
-  
-  .row {
-    width: auto;
-  }
-  
-  .form-con {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
-  
+  min-height: 60vh;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.row {
+  width: auto;
+}
+
+.form-con {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  gap: 15px;
+}
+
+.form-control {
+  border: 2px solid black;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(32, 32, 32);
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+.form-textarea {
+  border: 2px solid black;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.form-textarea:focus {
+  outline: none;
+}
+
+.btn-submit-con {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-btn {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.email-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(41, 92, 45);
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.email-con p {
+  margin: 0;
+}
+
+.email-con h2 span {
+  font-weight: 100;
+}
+
+@media screen and (max-width: 768px) {
   .form {
-    display: flex;
-    flex-direction: column;
-    width: 40vw;
-    gap: 15px;
-  }
-  
-  .form-control {
-    border: 2px solid black;
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    color: rgb(32, 32, 32);
-  }
-  
-  .form-control:focus {
-    outline: none;
-  }
-  
-  .form-textarea {
-    border: 2px solid black;
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
-  .form-textarea:focus {
-    outline: none;
-  }
-  
-  .btn-submit-con {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .contact-btn {
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
-  .email-con {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(41, 92, 45);
-    margin-bottom: 30px;
-    margin-top: 10px;
-  }
-  
-  .email-con p {
-    margin: 0;
-  }
-  
-  .email-con h2 span {
-    font-weight: 100;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .form {
-      width: 60vw;
-    }
-
-    .szh-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start !important;
-    }
+    width: 60vw;
   }
 
-  @media screen and (max-width: 576px) {
-    .contact-heading {
-      padding-left: 30px !important;
-      width: 50%;
-    }
+  .szh-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
   }
+}
+
+@media screen and (max-width: 576px) {
+  .contact-heading {
+    padding-left: 30px !important;
+    width: 50%;
+  }
+}

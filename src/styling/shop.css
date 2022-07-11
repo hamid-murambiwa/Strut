@@ -12,8 +12,8 @@
 }
 
 .cart-btn img {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .s-b-con {
@@ -34,6 +34,15 @@
   gap: 20px;
 }
 
+.shop-navigation a {
+  text-decoration: none;
+  color: black;
+}
+
+.home-btn a {
+  text-decoration: none;
+}
+
 .s-nav a {
   text-decoration: none;
   color: black !important;
@@ -42,10 +51,6 @@
 .s-nav a:hover {
   text-decoration: underline;
   color: black !important;
-}
-
-.home-btn a {
-  text-decoration: none;
 }
 
 .home-btn a h2 {
@@ -70,17 +75,12 @@
   margin-left: 2%;
 }
 
-.shop-navigation a {
-  text-decoration: none;
-  color: black;
-}
-
 .shop-navigation a:hover {
   text-decoration: underline;
 }
 
 .shop-navigation a strong {
- font-size: large;
+  font-size: large;
 }
 
 .cart-counter {
@@ -99,7 +99,7 @@
 @media screen and (max-width: 768px) {
   .shop-navigation {
     display: none;
-  } 
+  }
 
   #shop-container nav {
     display: none;
@@ -115,7 +115,7 @@
     border: none;
     margin-bottom: 10px;
     font-size: small;
-    font-weight: smaller;
+    font-weight: 350;
   }
 
   .btn:focus {
