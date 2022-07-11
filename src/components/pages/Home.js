@@ -36,11 +36,11 @@ function Home() {
                     Furniture Categories
                   </button>
                   <ul className="dropdown-menu">
-                    <Link to="shop/livingRoom">LIVING ROOM</Link>
-                    <Link to="shop/diningKitchen">DINING & KITCHEN</Link>
-                    <Link to="shop/bedroom">BEDROOM</Link>
-                    <Link to="shop/storageMedia">STORAGE & MEDIA</Link>
-                    <Link to="shop/office">OFFICE</Link>
+                    <Link to="/shop/livingRoom">LIVING ROOM</Link>
+                    <Link to="/shop/diningKitchen">DINING & KITCHEN</Link>
+                    <Link to="/shop/bedroom">BEDROOM</Link>
+                    <Link to="/shop/storageMedia">STORAGE & MEDIA</Link>
+                    <Link to="/shop/office">OFFICE</Link>
                   </ul>
                 </div>
                 <MenuItem><a href="/about">About</a></MenuItem>

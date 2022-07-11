@@ -36,20 +36,20 @@ function Contact() {
             <Link to="/"><h2>Strut</h2></Link>
           </div>
           <nav>
-            <a href="shop">Shop</a>
+            <Link to="/shop">Shop</Link>
             <div className="dropdown">
               <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Furniture Categories
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a className="dropdown-item" href="/shop/livingRoom">LIVING ROOM</a></li>
-                <li><a className="dropdown-item" href="/shop/diningKitchen">DINING & KITCHEN</a></li>
-                <li><a className="dropdown-item" href="/shop/bedroom">BEDROOM</a></li>
-                <li><a className="dropdown-item" href="/shop/storageMedia">STORAGE & MEDIA</a></li>
-                <li><a className="dropdown-item" href="/shop/office">OFFICE</a></li>
+                <li><Link className="dropdown-item" to="/shop/livingRoom">LIVING ROOM</Link></li>
+                <li><Link className="dropdown-item" to="/shop/diningKitchen">DINING & KITCHEN</Link></li>
+                <li><Link className="dropdown-item" to="/shop/bedroom">BEDROOM</Link></li>
+                <li><Link className="dropdown-item" to="/shop/storageMedia">STORAGE & MEDIA</Link></li>
+                <li><Link className="dropdown-item" to="/shop/office">OFFICE</Link></li>
               </ul>
             </div>
-            <a href="about">About</a>
+            <Link to="/about">About</Link>
           </nav>
           <Link to="/shop/cart" className="cart-btn">
             <img src={img} alt="cart icon" />

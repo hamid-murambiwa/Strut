@@ -36,7 +36,7 @@ function StorageMedia() {
           {furniture.length !== 0 ? (
             furniture.map((item, index) => (
               (item.category_id === 4) ? (
-                <a href={item.id} className="grid-item" key={item.id}>
+                <Link to={`/shop/${item.id}`} className="grid-item" key={item.id}>
                   <section id="grid-content">
                     <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={`${item.name}`} onMouseEnter={() => { toggleActive(index); }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }); }} onTouchStart={() => { toggleActive(index); }} onTouchEnd={() => { setIsActive1({ ...isActive1, activeObject: null }); }} />
                     <p>{item.name}</p>
@@ -45,7 +45,7 @@ function StorageMedia() {
                       {sort(item.price)}
                     </p>
                   </section>
-                </a>
+                </Link>
               ) : (null)
             ))
           ) : (null)}
