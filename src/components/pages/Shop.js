@@ -37,8 +37,8 @@ function Shop() {
             <Link to="/"><h2>Strut</h2></Link>
           </div>
           <nav className="s-nav">
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
           <Link to="/shop/cart" className="cart-btn">
             <img src={img} alt="cart icon" />
