@@ -15,7 +15,7 @@
 
 ## Live demo
 
-[Follow the link]()
+[Follow the link](https://strutfurniture.netlify.app/)
 ### Preview
 
 Homepage | Reservations page
