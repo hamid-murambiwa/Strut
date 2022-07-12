@@ -18,7 +18,7 @@
 [Follow the link](https://strutfurniture.netlify.app/)
 ### Preview
 
-Homepage | Reservations page
+Homepage | Online Store
 ------------- | -------------
 <img width="1392" alt="Screenshot 2022-04-14 at 10 01 52" src="https://user-images.githubusercontent.com/71644515/178300073-a102aa44-31a8-4cf1-b0b4-71e9ecd51d4c.png"> | <img width="1392" alt="Screenshot 2022-04-14 at 10 02 08" src="https://user-images.githubusercontent.com/71644515/178300155-2f2ff46e-199e-4e08-86aa-77a7dc4b1a14.png">
 
