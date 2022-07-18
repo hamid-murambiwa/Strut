@@ -151,13 +151,10 @@
 
 .message {
   display: flex;
-  background-color: #82a284;
-  padding-left: 10px;
-  padding-right: 10px;
+  color: #82a284;
   margin-bottom: 5px;
   border-radius: 5px;
   width: min-content;
-  color: white;
   white-space: nowrap;
 }
 
@@ -192,6 +189,8 @@
 }
 
 .p {
+  display: flex;
+  flex-direction: column !important;
   margin-top: 1vh;
 }
 
@@ -441,6 +440,15 @@
 .modal-sub-con {
   display: flex;
   background-color: rgb(68, 68, 68);
+}
+
+.lock-icon2 {
+  width: 55px;
+  height: 55px;
+  margin: 0 !important;
+  margin-left: 0 !important;
+  margin-top: 2vh !important;
+  margin-bottom: 2vh !important;
 }
 
 @media screen and (max-width: 768px) {

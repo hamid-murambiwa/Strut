@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
 import img from '../styling/images/delete.png';
+import img2 from '../styling/images/lock.png';
 import { sort } from '../services/tools';
 import '../styling/cart.css';
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
 
   function increment(id) {
     /* eslint-disable */
@@ -123,9 +125,36 @@ function Cart() {
               CONTINUE SHOPPING
             </Link>
             <h3>OR</h3>
+            {userData.logged_in ? (
             <button type="button" className="c-btn">
               CHECKOUT NOW
             </button>
+            ) : (
+                  <>
+                  <button type="button" class="c-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    CHECKOUT NOW
+                  </button><div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">UNAUTHORISED</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="login-pop-up">
+                            <strong className="CHECK">Login To Checkout</strong>
+                            <img src={img2} alt="lock icon" className="lock-icon" />
+                            <li><Link onClick={() => { setTimeout(() => { window.location.reload(); }, 10) }} to="/login">Login</Link></li>
+                          </ul>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </>
+            )}
           </div>
         </div>
       </section>

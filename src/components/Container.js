@@ -12,15 +12,19 @@ import Bedroom from './Bedroom';
 import StorageMedia from './StorageMedia';
 import Office from './Office';
 import Cart from './Cart';
-import { CartContext, ReviewContext } from './CartContext';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Account from './pages/Account';
+import Reset from './pages/Resetpassword';
+import ResetConfirmation from './pages/confirmations/ResetConfirmation';
+import { CartContext } from './CartContext';
 
 function Container() {
   const [cart, setCart] = useState(useContext(CartContext));
-  const [review, setReview] = useState(useContext(ReviewContext));
 
   const data = useMemo(() => ({
-    cart, review, setCart, setReview,
-  }), [cart, review, setCart, setReview]);
+    cart, setCart,
+  }), [cart, setCart]);
   return (
     <Router>
       <CartContext.Provider value={data}>
@@ -38,6 +42,11 @@ function Container() {
           </Route>
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="account" element={<Account />} />
+          <Route path="reset" element={<Reset />} />
+          <Route path="reset_confirmation" element={<ResetConfirmation />} />
         </Routes>
       </CartContext.Provider>
     </Router>

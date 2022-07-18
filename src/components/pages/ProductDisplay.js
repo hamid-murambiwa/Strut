@@ -11,6 +11,7 @@ import {
 import * as apiCalls from '../../services/services';
 import img from '../../styling/images/button.png';
 import img2 from '../../styling/images/cancel.png';
+import img3 from '../../styling/images/lock.png';
 import '../../styling/product.css';
 
 let images = [];
@@ -24,6 +25,7 @@ function ProductDisplay() {
     furniture_item_id: Page(),
   }]);
 
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
   const { cart, setCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState('');
@@ -159,7 +161,8 @@ function ProductDisplay() {
                         <h4>{review.title}</h4>
                         <p>{review.description}</p>
                         <i className="p">
-                          Created anonymously
+                          <strong>Created by {review.username}</strong>
+                          {' '}
                           {getDate(review.created_at)}
                           {' '}
                           ago
@@ -182,9 +185,10 @@ function ProductDisplay() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"><img src={img} alt="close button icon" /></button>
                           </div>
                           <div className="modal-body">
+                          {userData.logged_in ? (
                             <div className="App">
                               <i>Required fields are marked with *</i>
-                              <form onSubmit={() => apiCalls.handleReview(rating, title, reviewDes, Page, findId, setTitle, setReviewDes, setMessage)}>
+                              <form onSubmit={(e) => apiCalls.handleReview(rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage)}>
                                 <div className="f-con">
                                   <section className="overal">
                                     <strong>Overall Rating*</strong>
@@ -224,6 +228,20 @@ function ProductDisplay() {
                                 <div className="message">{message ? <p>{message}</p> : null}</div>
                               </form>
                             </div>
+                          ) : (
+                            <div className="login-prompt">
+                              <strong>Login To Write A Review</strong>
+                              <img src={img3} alt="lock icon" className="lock-icon2" />
+                              <Link to={'/login'} onClick={
+                                () => {
+                                  const element = document.querySelectorAll('.show');
+                                  element.forEach((el) => {
+                                    el.remove();
+                                  });
+                                }
+                              }>Login</Link>
+                            </div>
+                          )}
                           </div>
                         </div>
                       </section>

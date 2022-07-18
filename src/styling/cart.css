@@ -91,7 +91,63 @@
   color: black;
 }
 
+.CHECK {
+  padding-left: 5px;
+}
+
+.LOGIN {
+  margin-top: 1vh;
+  text-align: center;
+  color: white !important;
+  background-color: black !important;
+}
+
+.lock-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 !important;
+  margin-left: 40px !important;
+  margin-top: 2vh !important;
+  margin-bottom: 2vh !important;
+}
+
+.login-pop-up {
+  width: 100%;
+  padding: 2vw;
+  background-color: #EA5C2B !important;
+}
+
+.login-pop-up li {
+  text-align: center;
+  list-style: none;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.login-pop-up strong {
+  white-space: nowrap;
+  margin-bottom: 1vh;
+  color: white !important;
+  margin-bottom: 1vh !important;
+  margin-left: 17vw;
+}
+
+.login-pop-up a {
+  text-decoration: none;
+  color: white !important;
+  background-color: black !important;
+  padding: 9.7825px 15.13px !important;
+}
+
+.login-pop-up a:hover {
+  background-color: rgb(34, 34, 34) !important;
+}
+
 @media screen and (max-width: 600px) {
+  .login-pop-up {
+    background-color: #EA5C2B !important;
+  }
+
   .total {
     flex-direction: column;
     align-items: center;

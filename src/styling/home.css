@@ -278,6 +278,26 @@ body {
     font-size: smaller;
   }
 
+  @keyframes shift-nav {
+    from {
+      margin-left: 0;
+    }
+  
+    to {
+      margin-left: 2%;
+    }
+  }
+  
+  @keyframes shift-nav-out {
+    from {
+      margin-left: 2%;
+    }
+  
+    to {
+      margin-left: 0;
+    }
+  }
+
   #container1 {
     flex-direction: column;
     height: auto;
@@ -311,9 +331,13 @@ body {
   .szh-menu-button {
     background-color: transparent;
     border: none !important;
-    color: black;
+    color: white;
     font-size: xx-large;
     height: min-content;
+  }
+
+  .sec button {
+    color: black;
   }
 
   .burger {
@@ -352,7 +376,6 @@ body {
 
   .szh-menu {
     margin-top: 5px !important;
-    background-color: black;
     padding: 15px;
   }
 
@@ -362,11 +385,10 @@ body {
 
   .szh-menu li a {
     text-decoration: none;
-    color: white;
+    color: black;
   }
 
   .szh-menu li a:hover {
-    color: white;
     text-decoration: underline;
   }
 

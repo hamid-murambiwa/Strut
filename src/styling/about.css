@@ -8,7 +8,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-width: 40%;
+  min-width: 45%;
+  gap: 20px !important;
 }
 
 .about-nav-container {
@@ -22,7 +23,7 @@
 .a-n-con nav {
   display: flex;
   justify-content: flex-start;
-  width: 50%;
+  width: auto;
   gap: 30px;
 }
 
@@ -103,13 +104,14 @@
 }
 
 .dropdown-menu {
-  background-color: black !important;
+  background-color: white !important;
+  border: 2px solid black !important;
   margin-top: 10px;
 }
 
 .dropdown-item {
   top: 10px !important;
-  color: white !important;
+  color: black !important;
 }
 
 .dropdown-item:hover {
@@ -117,10 +119,18 @@
 }
 
 .dropdown-menu.show {
-  inset: 10px auto auto 0 !important;
+  inset: 5px auto auto -1.5vw !important;
+}
+
+.home-burger button {
+  color: white !important;
 }
 
 @media screen and (max-width: 768px) {
+  .sec {
+    color: #000 !important;
+  }
+
   .a-n-con {
     min-width: 100%;
   }
@@ -132,6 +142,10 @@
 
   .about-container {
     padding-top: 0 !important;
+  }
+
+  .dropdown-menu.show {
+    inset: 25px auto auto -3vw !important;
   }
 
   .c-info-con {
@@ -148,8 +162,8 @@
   }
 
   .btn {
-    color: white !important;
+    color: black !important;
     font-size: small !important;
-    font-weight: 350 !important;
+    font-weight: 400 !important;
   }
 }

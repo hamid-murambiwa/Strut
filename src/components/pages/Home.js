@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import { fetchAllCategories } from '../../redux/categories/categories';
-import '@szhsin/react-menu/dist/core.css';
 import img from '../../styling/images/icon-arrow.svg';
 import img2 from '../../styling/images/wall3.jpeg';
 import img21 from '../../styling/images/wall2.jpeg';
 import img3 from '../../styling/images/wall.jpeg';
 import img31 from '../../styling/images/wall4.jpeg';
+import '@szhsin/react-menu/dist/core.css';
 import '../../styling/home.css';
 
 function Home() {
@@ -28,9 +28,9 @@ function Home() {
         <section className={isActive ? 'header-con iactive' : 'header-con inactive'} onMouseEnter={() => { setIsActive(true); }} onMouseLeave={() => { setIsActive(false); }}>
           <div className={isActive ? 'nav-con nav-active' : 'nav-con nav-inactive'}>
             <header className="mobile-header">
-              <Menu className="menu-icon" menuButton={<MenuButton className="burger">&#9776;</MenuButton>}>
-                <MenuItem><Link to="/">Home</Link></MenuItem>
-                <MenuItem><Link to="/shop">Shop</Link></MenuItem>
+              <Menu className="menu-icon" menuButton={<MenuButton>&#9776;</MenuButton>}>
+                <MenuItem><a href="/">Home</a></MenuItem>
+                <MenuItem><a href="/shop">Shop</a></MenuItem>
                 <div className="btn-group dropend">
                   <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Furniture Categories
@@ -43,16 +43,16 @@ function Home() {
                     <Link to="/shop/office">OFFICE</Link>
                   </ul>
                 </div>
-                <MenuItem><Link to="/about">About</Link></MenuItem>
-                <MenuItem><Link to="/contact">Contact</Link></MenuItem>
+                <MenuItem><a href="/about">About</a></MenuItem>
+                <MenuItem><a href="/contact">Contact</a></MenuItem>
               </Menu>
             </header>
             <h1>Strut</h1>
             <nav>
               <Link to="/">Home</Link>
-              <Link to="shop">Shop</Link>
-              <Link to="about">About</Link>
-              <Link to="contact">Contact</Link>
+              <Link to="/shop">Shop</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
             </nav>
           </div>
         </section>

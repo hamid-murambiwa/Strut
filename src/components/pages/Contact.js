@@ -1,37 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+import MobileHeader from '../Header';
 import { CartContext } from '../CartContext';
+import * as apiCalls from '../../services/services';
 import '@szhsin/react-menu/dist/core.css';
 import img from '../../styling/images/shopping-cart.png';
+import img2 from '../../styling/images/user.png';
 import '../../styling/contact.css';
 
 function Contact() {
   const { cart } = useContext(CartContext);
+  const [message, setMessage] = useState('');
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
   return (
     <div className="container5">
       <section className="about-nav-container">
         <div className="a-n-con">
-          <header className="mobile-header">
-            <Menu className="menu-icon" menuButton={<MenuButton>&#9776;</MenuButton>}>
-              <MenuItem><Link to="/">Home</Link></MenuItem>
-              <MenuItem><Link to="/shop">Shop</Link></MenuItem>
-              <div className="btn-group dropend">
-                <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Furniture Categories
-                </button>
-                <ul className="dropdown-menu">
-                  <Link to="/shop/livingRoom">LIVING ROOM</Link>
-                  <Link to="/shop/diningKitchen">DINING & KITCHEN</Link>
-                  <Link to="/shop/bedroom">BEDROOM</Link>
-                  <Link to="/shop/storageMedia">STORAGE & MEDIA</Link>
-                  <Link to="/shop/office">OFFICE</Link>
-                </ul>
-              </div>
-              <MenuItem><Link to="/about">About</Link></MenuItem>
-              <MenuItem><Link to="/contact">Contact</Link></MenuItem>
-            </Menu>
-          </header>
+          <MobileHeader />
           <div className="home-btn">
             <Link to="/"><h2>Strut</h2></Link>
           </div>
@@ -51,13 +36,42 @@ function Contact() {
             </div>
             <Link to="/about">About</Link>
           </nav>
-          <Link to="/shop/cart" className="cart-btn">
-            <img src={img} alt="cart icon" />
-            <span className="cart-counter">{cart.length}</span>
-          </Link>
+          <section className="icons-container">
+            <div className="dropdown user-con-btn">
+              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div>
+                  <img src={img2} alt="cart icon" />
+                </div>
+              </button>
+              {userData.logged_in ? (
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <strong>
+                      Hi,
+                      {' '}
+                      {userData.user.firstname}
+                    </strong>
+
+                  </li>
+                  <li><Link className="dropdown-item" to="/account">ACCOUNT SETTINGS</Link></li>
+                  <li><button type="button" className="s-o" onClick={() => apiCalls.handleSignout(setMessage)}>LOGOUT</button></li>
+                </ul>
+              ) : (
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><Link className="dropdown-item" to="/login">LOGIN</Link></li>
+                  <li><Link className="dropdown-item" to="/signup">CREATE AN ACCOUNT</Link></li>
+                </ul>
+              )}
+            </div>
+            <Link to="/shop/cart" className="cart-btn">
+              <img src={img} alt="cart icon" />
+              <span className="cart-counter">{cart.length}</span>
+            </Link>
+          </section>
         </div>
       </section>
       <section className="contact-container">
+        <div className="message">{message ? <p>{message}</p> : null}</div>
         <hr />
         <div className="contact-heading">
           <h4>Contact</h4>
