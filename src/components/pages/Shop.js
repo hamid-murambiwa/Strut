@@ -51,7 +51,7 @@ function Shop() {
                   <img src={img2} alt="cart icon" />
                 </div>
               </button>
-              {userData.logged_in ? (
+              {(userData.logged_in && userData.length > 0) ? (
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
                     <strong>
