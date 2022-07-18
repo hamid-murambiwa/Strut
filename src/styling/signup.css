@@ -1,0 +1,71 @@
+.Signup-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-top: 1px solid rgb(192, 192, 192);
+  padding-top: 5vh;
+  font-size: smaller;
+}
+
+.Signup-form-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 30vw;
+  max-width: 30vw;
+  gap: 15px;
+}
+
+.Signup-form-container strong {
+  font-size: large;
+  font-weight: 450 !important;
+}
+
+.Signup-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Signup-form-container form div span {
+  font-size: smaller;
+  color: grey;
+  margin-left: 10px;
+}
+
+.Signup-form-container form div input {
+  padding: 5px;
+  padding-left: 10px;
+  border: 1.5px solid black;
+  border-radius: 3px;
+}
+
+.Signup-form-container form button {
+  padding: 8px;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  font-weight: 450 !important;
+}
+
+.Signup-form-container p {
+  font-size: smaller;
+  font-weight: 300;
+}
+
+.message {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.error-message {
+  color: red !important;
+  font-size: smaller;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 600px) {
+.Signup-form-container {
+    min-width: 65% !important;
+    max-width: 65% !important;
+}
+}
