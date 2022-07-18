@@ -57,6 +57,12 @@
 
 .about-container h3 {
   font-weight: 200;
+  font-size: small;
+}
+
+.about-container p {
+  font-size: smaller;
+  width: 80%;
 }
 
 .about-container h2 {

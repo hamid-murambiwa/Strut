@@ -166,7 +166,7 @@ export const handleSignin = async (e, username, password, passwordConfirmation, 
       localStorage.setItem('user', localData);
       setTimeout(() => {
       window.history.back()
-      }, 1000);
+      }, 500);
     } else {
       setErrorMessage([response['errors']]);
     }
