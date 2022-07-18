@@ -13,9 +13,6 @@ export function isLoggedIn(setUserData) {
         return Promise.reject(error);
       }
       return setUserData(data);
-    })
-    .catch((error) => {
-      console.log(error);
     });
 }
 
