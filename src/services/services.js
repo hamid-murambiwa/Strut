@@ -55,8 +55,9 @@ export function componentDidMount(findId, Page, averageRating, reviews, setRevie
     });
 }
 
-export function handleAverage(reviews, setAverageRating) {
-
+export function handleAverage(reviews, averageRating, setAverageRating) {
+  // eslint disable-next-line no-plusplus
+  console.log(averageRating);
   if (reviews[0].id > 0) {
     setAverageRating(reviews.reduce((acc, curr) => acc + curr.overal_rating, 0) / reviews.length);
   }
