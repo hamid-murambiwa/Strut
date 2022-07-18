@@ -8,7 +8,7 @@ import '../styling/cart.css';
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
 
   function increment(id) {
     /* eslint-disable */

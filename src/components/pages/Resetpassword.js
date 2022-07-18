@@ -9,7 +9,7 @@ import img2 from '../../styling/images/user.png';
 import '../../styling/reset.css';
 
 function Reset() {
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const [errorMessage, setErrorMessage] = useState('');
   const [message, setMessage] = useState('');
   const [password, setPassword] = useState('');

@@ -11,7 +11,7 @@ import '../../styling/shop.css';
 function Shop() {
   const [message, setMessage] = useState('');
   const { cart } = useContext(CartContext);
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
 
   return (
     <div>
@@ -51,7 +51,7 @@ function Shop() {
                   <img src={img2} alt="cart icon" />
                 </div>
               </button>
-              {(userData.logged_in && userData.length > 0) ? (
+              {userData.logged_in ? (
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
                     <strong>

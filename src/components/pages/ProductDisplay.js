@@ -25,7 +25,7 @@ function ProductDisplay() {
     furniture_item_id: Page(),
   }]);
 
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const { cart, setCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState('');

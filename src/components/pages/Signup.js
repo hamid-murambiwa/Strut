@@ -9,7 +9,7 @@ import MobileHeader from '../Header';
 import '../../styling/signup.css';
 
 function Signup() {
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const [message, setMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState([]);
   const [firstname, setFirstname] = useState('');

@@ -4,7 +4,7 @@ import * as apiCalls from '../services/services';
 
 function AccNav() {
   const [message, setMessage] = useState('');
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   return (
     userData.logged_in ? (
       <section className="shop-navigation adjust-nav">

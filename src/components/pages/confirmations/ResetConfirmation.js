@@ -9,7 +9,7 @@ import img2 from '../../../styling/images/user.png';
 function ResetConfirmation() {
   const { cart } = useContext(CartContext);
   const [message, setMessage] = useState('');
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   return (
     <div>
       <section className="about-nav-container">

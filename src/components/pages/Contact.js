@@ -11,7 +11,7 @@ import '../../styling/contact.css';
 function Contact() {
   const { cart } = useContext(CartContext);
   const [message, setMessage] = useState('');
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   return (
     <div className="container5">
       <section className="about-nav-container">

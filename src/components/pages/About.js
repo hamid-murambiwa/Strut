@@ -9,7 +9,7 @@ import img2 from '../../styling/images/user.png';
 import '../../styling/about.css';
 
 function About() {
-  const [userData] = useState(JSON.parse(localStorage.getItem('user')));
+  const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const [message, setMessage] = useState('');
   const { cart } = useContext(CartContext);
   return (
