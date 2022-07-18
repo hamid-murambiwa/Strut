@@ -1,0 +1,127 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  font-size: x-small;
+  border-top: 1px solid rgb(192, 192, 192);
+  padding-top: 3vh;
+}
+
+.login-container strong {
+  font-size: small;
+  font-weight: 450 !important;
+}
+
+.l-con {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form-container {
+  border-right: 3px solid rgb(218, 218, 218);
+}
+
+.login-form-container,
+.signup-link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 30vw;
+  min-width: 30vw;
+  padding: 50px;
+  gap: 15px;
+}
+
+.signup-link-container a {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-decoration: none;
+  background-color: black;
+  color: white !important;
+}
+
+.signup-link-container div li {
+  margin-bottom: 10px;
+  font-size: xx-small;
+  font-weight: 300;
+}
+
+.login-form-container form {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  gap: 15px;
+  margin-bottom: -20px;
+}
+
+.login-form-container form input {
+  padding: 5px;
+  padding-left: 20px;
+  border-radius: 3px;
+}
+
+.login-form-container form input:focus {
+  border: 2px solid black !important;
+}
+
+.login-form-container form button {
+  padding: 8px;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+.btn-reset-email {
+  margin-top: 30px !important;
+  background-color: black !important;
+  color: white !important;
+  border: 2px solid black !important;
+  padding: 5px !important;
+}
+
+.reset-email-con {
+  padding: 2vw;
+}
+
+.login-form-container form label span {
+  color: grey;
+  font-size: xx-small;
+  margin-left: 10px;
+}
+
+.error-message {
+  color: red !important;
+  font-size: smaller;
+  font-weight: 300;
+}
+
+.modal-header .btn-close {
+  display: none;
+}
+
+.for-btn-to {
+  color: rgb(71, 71, 71) !important;
+}
+
+.for-btn-to:focus {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .login-form-container {
+    min-width: 100%;
+    max-width: 100%;
+    border-bottom: 2px solid grey;
+  }
+
+  .login-container {
+    flex-direction: column;
+  }
+
+  .signup-link-container {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
