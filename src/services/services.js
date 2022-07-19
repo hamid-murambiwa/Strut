@@ -153,6 +153,7 @@ export const handleSignin = async (e, username, password, passwordConfirmation, 
     }
   };
   if (password === passwordConfirmation) {
+    setErrorMessage('Loading...');
   try {
     const res = await fetch(`${BACK_END_URL}/login`, {
       method: 'POST',
