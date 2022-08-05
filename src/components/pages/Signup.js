@@ -62,6 +62,7 @@ function Signup() {
 
                   </li>
                   <li><Link className="dropdown-item" to="/account">ACCOUNT SETTINGS</Link></li>
+                  <li><Link className="dropdown-item" to="/orders">MY ORDERS</Link></li>
                   <li><button type="button" className="s-o" onClick={() => apiCalls.handleSignout(setMessage)}>LOGOUT</button></li>
                 </ul>
               ) : (

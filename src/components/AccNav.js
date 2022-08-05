@@ -15,7 +15,7 @@ function AccNav() {
         </strong>
         <nav>
           <Link className="dropdown-item" to="/account">ACCOUNT SETTINGS</Link>
-          <Link className="dropdown-item" to="/account">MY ORDERS</Link>
+          <Link className="dropdown-item" to="/orders">MY ORDERS</Link>
         </nav>
         <button type="button" className="s-o" onClick={() => apiCalls.handleSignout(setMessage)}>LOGOUT</button>
         <div className="message">{message ? <p>{message}</p> : null}</div>

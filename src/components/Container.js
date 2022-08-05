@@ -17,6 +17,9 @@ import Signup from './pages/Signup';
 import Account from './pages/Account';
 import Reset from './pages/Resetpassword';
 import ResetConfirmation from './pages/confirmations/ResetConfirmation';
+import PayPal from './PayPal';
+import Orders from './Orders';
+import Order from './Order';
 import { CartContext } from './CartContext';
 
 function Container() {
@@ -39,6 +42,7 @@ function Container() {
             <Route path="office" element={<Office />} />
             <Route path=":id" element={<ProductDisplay />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="paypal" element={<PayPal />} />
           </Route>
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
@@ -47,6 +51,8 @@ function Container() {
           <Route path="account" element={<Account />} />
           <Route path="reset" element={<Reset />} />
           <Route path="reset_confirmation" element={<ResetConfirmation />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="order/:id" element={<Order />} />
         </Routes>
       </CartContext.Provider>
     </Router>

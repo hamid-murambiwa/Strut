@@ -1,48 +1,47 @@
 .passwordupdate p {
-    font-weight: 300 !important;
+  font-weight: 300 !important;
 }
 
 .passwordupdate form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .passwordupdate form div span {
-    color: grey !important;
-    font-size: xx-small !important;
-    margin-left: 10px;
+  color: grey !important;
+  font-size: xx-small !important;
+  margin-left: 10px;
 }
 
 .passwordupdate form input {
-    border: 1.5px solid black;
-    padding: 5px;
-    padding-left: 10px;
+  border: 1.5px solid black;
+  padding: 5px;
+  padding-left: 10px;
 }
 
 .passwordupdate form button {
-    background-color: black !important;
-    color: white;
-    width: 100%;
-    border: none;
-    padding: 10px;
-
+  background-color: black !important;
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 10px;
 }
 
 .email-new-udate {
-    justify-content: flex-start !important;
+  justify-content: flex-start !important;
 }
 
 .account-settings-con {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .acc-heading {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* .acc-heading h3 {
@@ -50,63 +49,72 @@
 } */
 
 .acc-con {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  padding-left: 10%;
+  z-index: -1;
 }
 
 .adjust-nav {
-    position: fixed;
-    top: 16%;
+  position: fixed;
+  top: 13%;
+  border-radius: 5px;
+  border-right: 1px solid rgb(192, 192, 192);
+  border-top: 1px solid rgb(192, 192, 192);
+  height: 100vh;
 }
 
 .s-o {
-    display: flex;
-    padding: 3.7825px 15.13px !important;
-    background-color: transparent !important;
-    border: none !important;
+  display: flex;
+  padding: 0 3.13px !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 
 .dropdown-menu li {
-    padding: 3.7825px 15.13px !important;
+  padding: 3.7825px 15.13px !important;
 }
 
 .login-prompt {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 1vh;
-    padding: 30px;
-    background-color: #EA5C2B !important;
-    border: 5px solid black;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1vh;
+  padding: 30px;
+  background-color: #ea5c2b !important;
+  border: 5px solid black;
+  color: white;
 }
 
 .login-prompt strong {
-    white-space: nowrap;
-    margin-bottom: 2vh;
+  white-space: nowrap;
+  margin-bottom: 2vh;
 }
 
 .login-prompt a {
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    padding: 3.7825px 15.13px !important;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 3.7825px 15.13px !important;
 }
 
 .lock-icon2 {
-    width: 55px;
-    height: 55px;
-    margin: 0 !important;
-    margin-top: 2vh !important;
-    margin-bottom: 2vh !important;
+  width: 55px;
+  height: 55px;
+  margin: 0 !important;
+  margin-top: 2vh !important;
+  margin-bottom: 2vh !important;
 }
 
 @media screen and (max-width: 768px) {
-    .account-settings-con {
-        flex-direction: column !important;
-    }
+  .account-settings-con {
+    flex-direction: column !important;
+  }
 }

@@ -111,7 +111,7 @@ function Home() {
               Product specialists are available to help you create your dream space.
             </p>
           </Link>
-          <div className="c-2-c" onMouseEnter={() => { setIsActive3(true); }} onMouseLeave={() => { setIsActive3(false); }} onTouchStart={() => { setIsActive2(true); }} onTouchEnd={() => { setIsActive2(false); }} style={{ backgroundImage: `url(${isActive3 ? (img31) : (img3)})` }} />
+          <div className="c-2-c" onMouseEnter={() => { setIsActive3(true); }} onMouseLeave={() => { setIsActive3(false); }} onTouchStart={() => { setIsActive3(true); }} onTouchEnd={() => { setIsActive3(false); }} style={{ backgroundImage: `url(${isActive3 ? (img31) : (img3)})` }} />
         </section>
       </div>
     </section>

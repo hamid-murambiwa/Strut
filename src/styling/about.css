@@ -118,6 +118,7 @@
 .dropdown-item {
   top: 10px !important;
   color: black !important;
+  padding: 0 !important;
 }
 
 .dropdown-item:hover {
@@ -151,7 +152,7 @@
   }
 
   .dropdown-menu.show {
-    inset: 25px auto auto -3vw !important;
+    inset: 25px auto auto -25vw !important;
   }
 
   .c-info-con {

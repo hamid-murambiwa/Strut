@@ -451,6 +451,12 @@
   margin-bottom: 2vh !important;
 }
 
+.image-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
   #prod-container {
     flex-direction: column;

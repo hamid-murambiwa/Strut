@@ -282,17 +282,17 @@ body {
     from {
       margin-left: 0;
     }
-  
+
     to {
       margin-left: 2%;
     }
   }
-  
+
   @keyframes shift-nav-out {
     from {
       margin-left: 2%;
     }
-  
+
     to {
       margin-left: 0;
     }
@@ -331,13 +331,13 @@ body {
   .szh-menu-button {
     background-color: transparent;
     border: none !important;
-    color: white;
+    color: white !important;
     font-size: xx-large;
     height: min-content;
   }
 
   .sec button {
-    color: black;
+    color: black !important;
   }
 
   .burger {

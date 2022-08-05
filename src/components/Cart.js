@@ -126,9 +126,9 @@ function Cart() {
             </Link>
             <h3>OR</h3>
             {userData.logged_in ? (
-            <button type="button" className="c-btn">
+            <Link to="/shop/paypal" className="c-btn">
               CHECKOUT NOW
-            </button>
+            </Link>
             ) : (
                   <>
                   <button type="button" class="c-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">

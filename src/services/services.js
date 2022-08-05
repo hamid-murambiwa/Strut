@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { encode } from 'base-64';
 import { Page, findId } from './tools';
 
 const BACK_END_URL = 'https://strut-furniture-api.herokuapp.com//api/v1';
@@ -15,6 +16,27 @@ export function isLoggedIn(setUserData) {
       return setUserData(data);
     });
 }
+
+// GET price
+export const fetchPrice = async (amount, setPrice, setMessage) => {
+  try {
+    const res = await fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=ZAR&to=GBP`, {
+      method: 'GET',
+      headers: {
+        apikey: 'ALQF9bxSv5LWzcov2vshP3CfXlsO51Rb',
+        'Content-Type': 'application/json',
+      },
+    }).then((response) => response.json());
+    if (res) {
+      setPrice(res.rates.GBP);
+      setMessage('Currency Converted successfully');
+    } else {
+      setMessage('Some error occured while converting currency');
+    }
+  } catch (err) {
+    setMessage(err);
+  }
+};
 
 // GET ALL categories
 export const fetchAllCategories = async () => {
@@ -55,9 +77,73 @@ export function componentDidMount(findId, Page, averageRating, reviews, setRevie
     });
 }
 
+export const fetchOrder = async (link, amount, setMessage) => {
+  let response = [];
+  let username = 'AfOm-0-nnphAZ9kve_BDWVHhuBsDySkhr3Qe9mZG2qPFPcb53ldb_-M02tBnPujiXBanezl79Vj-4GA1';
+  let password = 'EB7Id63CqcOv7mWViyZP_LqTiBtP5d6VILlZx1kyh2yviEmx1bMwaZH2YQZ8V3rGXf-Oj7UPMV_k3fwB';
+
+  try {
+    const res = await fetch(link, {
+      method: 'GET',
+      headers: new Headers({
+        'Authorization': 'Basic ' + encode(username + ":" + password),
+        'Content-Type': 'application/json'
+      }),
+    }).then(response => response.json())
+    .then(resp => response = resp);
+    if (res.status === 'COMPLETED') {
+      const resData = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
+      if (!resData.some(e => e.id === response.id) || resData === []) {
+            response.purchase_units[0].amount.value = amount;
+            response.purchase_units[0].amount.currency_code = 'ZAR';
+            resData.push(response);
+            const resultData = JSON.stringify(resData);
+            localStorage.setItem('order', resultData);
+            window.location.reload();
+            if (resData.some(e => e.purchase_units[0].amount.value === 0)) {
+              localStorage.removeItem("order");
+            }
+      }
+    } else {
+      setMessage('Some error occured while fetching order');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export const handleOrder = async (userData, link, totalPrice, setMessage) => {
+  const data = {
+    link: link,
+    amount: totalPrice(),  
+    user_id: userData["user"]["id"],
+  };
+  try {
+    const res = await fetch(`${BACK_END_URL}/users/${userData.user.id}/orders`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.status === 200) {
+      setMessage('Order created successfully');
+    } else {
+      setMessage('Some error occured');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+// GET orders
+export const fetchOrders = async (userData) => {
+  const categoriesData = await axios.get(`${BACK_END_URL}/users/${userData.user.id}/orders`);
+  return categoriesData.data.orders;
+};
+
 export function handleAverage(reviews, averageRating, setAverageRating) {
   // eslint disable-next-line no-plusplus
-  console.log(averageRating);
   if (reviews[0].id > 0) {
     setAverageRating(reviews.reduce((acc, curr) => acc + curr.overal_rating, 0) / reviews.length);
   }
@@ -131,7 +217,6 @@ export const handleSignup = async (
         window.location.replace('/login');
       }, 1000);
     } else {
-      console.log(errors['errors']);
       setErrorMessage(errors['errors']);
     }
   } catch (err) {
