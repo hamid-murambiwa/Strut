@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Slide from 'react-reveal/Slide';
 import { CartContext } from './CartContext';
 import img from '../styling/images/delete.png';
 import img2 from '../styling/images/lock.png';
@@ -69,39 +70,6 @@ function Cart() {
   return (
     <div id="container3">
       <section className="conc">
-        <section className="cart-container">
-          {cart.map((cart, index) => (
-            /* eslint-disable */
-            <div className="cart">
-              <div className="cart-details">
-                <img className="cart-img" src={cart.a_image} alt={`${cart.name} image`} />
-                <div className="cart-dc">
-                  <p>{cart.name}</p>
-                  <strong>In Stock</strong>
-                </div>
-              </div>
-              <div className="cart-settings">
-                <strong>
-                  R
-                  {sort(cart.price)}
-                </strong>
-                <div className="quantity">
-                  <button type="button" className="q-btn" onClick={() => increment(cart.id)}>
-                    +
-                  </button>
-                  <p>{cart.quantity}</p>
-                  <button type="button" className="q-btn" onClick={() => decrement(cart.id)}>
-                    -
-                  </button>
-                </div>
-                <button type="button" className="delete-cart-btn" onClick={() => handleDelete(index)}>
-                  <img src={img} alt="delete icon" />
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
-        </section>
         <div className="cart-summary">
           <div className="total">
             <strong>Your Cart: </strong>
@@ -157,6 +125,41 @@ function Cart() {
             )}
           </div>
         </div>
+        <section className="cart-container">
+          {cart.map((cart, index) => (
+            /* eslint-disable */
+            <Slide bottom>
+            <div className="cart">
+              <div className="cart-details">
+                <img className="cart-img" src={cart.a_image} alt={`${cart.name} image`} />
+                <div className="cart-dc">
+                  <p>{cart.name}</p>
+                  <strong>In Stock</strong>
+                </div>
+              </div>
+              <div className="cart-settings">
+                <strong>
+                  R
+                  {sort(cart.price)}
+                </strong>
+                <div className="quantity">
+                  <button type="button" className="q-btn" onClick={() => increment(cart.id)}>
+                    +
+                  </button>
+                  <p>{cart.quantity}</p>
+                  <button type="button" className="q-btn" onClick={() => decrement(cart.id)}>
+                    -
+                  </button>
+                </div>
+                <button type="button" className="delete-cart-btn" onClick={() => handleDelete(index)}>
+                  <img src={img} alt="delete icon" />
+                  Delete
+                </button>
+              </div>
+            </div>
+            </Slide>
+          ))}
+        </section>
       </section>
     </div>
   );

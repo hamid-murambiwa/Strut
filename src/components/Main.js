@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Slide from 'react-reveal/Slide';
 import { fetchAllCategories } from '../redux/categories/categories';
 import '../styling/main.css';
 
@@ -24,12 +25,14 @@ function Main() {
         <section id="grid">
           {categories.length !== 0 ? (
             categories.data.map((category) => (
-              <Link to={category.route} className="grid-item" key={category.id}>
-                <section id="cat-img">
-                  <img src={category.image} alt={`${category.name}`} />
-                  <p>{category.name}</p>
-                </section>
-              </Link>
+              <Slide bottom key={category.id}>
+                <Link to={category.route} className="grid-item">
+                  <section id="cat-img">
+                    <img src={category.image} alt={`${category.name}`} />
+                    <p>{category.name}</p>
+                  </section>
+                </Link>
+              </Slide>
             ))
           ) : (null)}
         </section>

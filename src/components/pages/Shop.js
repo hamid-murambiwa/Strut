@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import Slide from 'react-reveal/Slide';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
+import Zoom from 'react-reveal/Zoom';
+import Bounce from 'react-reveal/Bounce';
 import * as apiCalls from '../../services/services';
 import { CartContext } from '../CartContext';
 import '@szhsin/react-menu/dist/core.css';
@@ -38,7 +41,9 @@ function Shop() {
             </Menu>
           </header>
           <div className="home-btn">
-            <Link to="/"><h2>Strut</h2></Link>
+            <Zoom>
+              <Link to="/"><h2>Strut</h2></Link>
+            </Zoom>
           </div>
           <nav className="s-nav">
             <Link to="/about">About</Link>
@@ -46,11 +51,13 @@ function Shop() {
           </nav>
           <section className="icons-container">
             <div className="dropdown user-con-btn">
-              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <div>
-                  <img src={img2} alt="cart icon" />
-                </div>
-              </button>
+              <Slide left>
+                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div>
+                    <img src={img2} alt="cart icon" />
+                  </div>
+                </button>
+              </Slide>
               {userData.logged_in ? (
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
@@ -72,24 +79,28 @@ function Shop() {
                 </ul>
               )}
             </div>
-            <Link to="/shop/cart" className="cart-btn">
-              <img src={img} alt="cart icon" />
-              <span className="cart-counter">{cart.length}</span>
-            </Link>
+            <Bounce>
+              <Link to="/shop/cart" className="cart-btn">
+                <img src={img} alt="cart icon" />
+                <span className="cart-counter">{cart.length}</span>
+              </Link>
+            </Bounce>
           </section>
         </div>
       </section>
       <div>
-        <section className="shop-navigation">
-          <Link to="/shop"><strong>FURNITURE</strong></Link>
-          <nav>
-            <Link to="livingRoom">LIVING ROOM</Link>
-            <Link to="diningKitchen">DINING & KITCHEN</Link>
-            <Link to="bedroom">BEDROOM</Link>
-            <Link to="storageMedia">STORAGE & MEDIA</Link>
-            <Link to="office">OFFICE</Link>
-          </nav>
-        </section>
+        <Slide left>
+          <section className="shop-navigation">
+            <Link to="/shop"><strong>FURNITURE</strong></Link>
+            <nav>
+              <Link to="livingRoom">LIVING ROOM</Link>
+              <Link to="diningKitchen">DINING & KITCHEN</Link>
+              <Link to="bedroom">BEDROOM</Link>
+              <Link to="storageMedia">STORAGE & MEDIA</Link>
+              <Link to="office">OFFICE</Link>
+            </nav>
+          </section>
+        </Slide>
         <div className="message">{message ? <p>{message}</p> : null}</div>
         <Outlet />
       </div>

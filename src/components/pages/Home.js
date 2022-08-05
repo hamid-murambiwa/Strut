@@ -28,7 +28,7 @@ function Home() {
         <section className={isActive ? 'header-con iactive' : 'header-con inactive'} onMouseEnter={() => { setIsActive(true); }} onMouseLeave={() => { setIsActive(false); }}>
           <div className={isActive ? 'nav-con nav-active' : 'nav-con nav-inactive'}>
             <header className="mobile-header">
-              <Menu className="menu-icon" menuButton={<MenuButton>&#9776;</MenuButton>}>
+              <Menu className="menu-icon" menuButton={<MenuButton>☰</MenuButton>}>
                 <MenuItem><a href="/">Home</a></MenuItem>
                 <MenuItem><a href="/shop">Shop</a></MenuItem>
                 <div className="btn-group dropend">

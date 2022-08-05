@@ -134,6 +134,19 @@
 }
 
 @media screen and (max-width: 768px) {
+  .container5 {
+    margin-top: 12vh;
+  }
+
+  .about-nav-container {
+    position: fixed;
+    background-color: white !important;
+    top: 0;
+    padding-top: 2.5vh !important;
+    padding-bottom: 2vh !important;
+    z-index: 100;
+  }
+
   .sec {
     color: #000 !important;
   }
@@ -149,6 +162,7 @@
 
   .about-container {
     padding-top: 0 !important;
+    margin-top: 12vh;
   }
 
   .dropdown-menu.show {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Slide from 'react-reveal/Slide';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllFurniture } from '../redux/furnitureItems/furniture';
 import { sort } from '../services/tools';
@@ -36,16 +37,18 @@ function LivingRoom() {
           {furniture.length !== 0 ? (
             furniture.map((item, index) => (
               (item.category_id === 1) ? (
-                <Link to={`/shop/${item.id}`} className="grid-item" key={item.id}>
-                  <section id="grid-content">
-                    <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={`${item.name}`} onMouseEnter={() => { toggleActive(index); }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }); }} onTouchStart={() => { toggleActive(index); }} onTouchEnd={() => { setIsActive1({ ...isActive1, activeObject: null }); }} />
-                    <p>{item.name}</p>
-                    <p className="price">
-                      R
-                      {sort(item.price)}
-                    </p>
-                  </section>
-                </Link>
+                <Slide bottom>
+                  <Link to={`/shop/${item.id}`} className="grid-item" key={item.id}>
+                    <section id="grid-content">
+                      <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={`${item.name}`} onMouseEnter={() => { toggleActive(index); }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }); }} onTouchStart={() => { toggleActive(index); }} onTouchEnd={() => { setIsActive1({ ...isActive1, activeObject: null }); }} />
+                      <p>{item.name}</p>
+                      <p className="price">
+                        R
+                        {sort(item.price)}
+                      </p>
+                    </section>
+                  </Link>
+                </Slide>
               ) : (null)
             ))
           ) : (null)}

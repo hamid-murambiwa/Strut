@@ -63,17 +63,17 @@
 .shop-navigation {
   display: flex;
   flex-direction: column;
-  left: 0;
+  left: 0.6%;
   width: max-content;
   padding-left: 1.5%;
   padding-top: 3%;
   line-height: 6vh;
   white-space: nowrap;
-  border-top: 1px solid rgb(192, 192, 192);
-  border-right: 1px solid rgb(192, 192, 192);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
-  height: 100vh;
+  height: auto;
   padding-right: 1.5%;
+  padding-bottom: 1.5%;
   position: fixed;
 }
 
@@ -132,6 +132,13 @@
 
   .s-b-con {
     width: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    top: 0;
+    right: 0;
   }
 
   .icons-container {
@@ -177,7 +184,9 @@
     max-width: 100%;
     position: relative !important;
     right: 0 !important;
-    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 7vh;
   }
 
   #grid {

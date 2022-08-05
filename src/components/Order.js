@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Slide from 'react-reveal/Slide';
 import MobileHeader from './Header';
 import AccNav from './AccNav';
 import { CartContext } from './CartContext';
@@ -86,81 +87,82 @@ export default function Order() {
       orderData.map((e) => {
         if (e.id === id) {
           return (
-            <div className="order-info" key={e.id}>
-
-              <p>
-                0rder #
-                {e.id}
-                {' '}
-                was placed on
-                {' '}
-                {moment.parseZone(e.create_time).format('mm/DD/yyyy')}
-                {' '}
-                and is currently
-                {' '}
-                {e.purchase_units[0].payments.captures[0].status}
-                .
-              </p>
-              <h1>Order Details</h1>
-              <table id="collapse">
-                <tbody>
+            <Slide right>
+              <div className="order-info" key={e.id}>
+                <p>
+                  0rder #
+                  {e.id}
+                  {' '}
+                  was placed on
+                  {' '}
+                  {moment.parseZone(e.create_time).format('mm/DD/yyyy')}
+                  {' '}
+                  and is currently
+                  {' '}
+                  {e.purchase_units[0].payments.captures[0].status}
+                  .
+                </p>
+                <h1>Order Details</h1>
+                <table id="collapse">
+                  <tbody>
+                    <tr>
+                      <th>Product</th>
+                      <th>Total</th>
+                      <th> </th>
+                    </tr>
+                    <tr>
+                      <td>{e.purchase_units[0].description}</td>
+                      <td>
+                        R
+                        {sort(Number(e.purchase_units[0].amount.value))}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Payment method:</td>
+                      <td>{e.purchase_units[0].soft_descriptor}</td>
+                    </tr>
+                    <tr>
+                      <td>Subtotal:</td>
+                      <td>
+                        R
+                        {sort(Number(e.purchase_units[0].amount.value))}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h1>Shipping Address</h1>
+                <table id="separate">
                   <tr>
-                    <th>Product</th>
-                    <th>Total</th>
+                    <th> </th>
                     <th> </th>
                   </tr>
                   <tr>
-                    <td>{e.purchase_units[0].description}</td>
-                    <td>
-                      R
-                      {sort(Number(e.purchase_units[0].amount.value))}
-                    </td>
+                    <td>Line 1:</td>
+                    <td>{e.purchase_units[0].shipping.address.address_line_1}</td>
                   </tr>
                   <tr>
-                    <td>Payment method:</td>
-                    <td>{e.purchase_units[0].soft_descriptor}</td>
+                    <td>City:</td>
+                    <td>{e.purchase_units[0].shipping.address.admin_area_2}</td>
                   </tr>
                   <tr>
-                    <td>Subtotal:</td>
-                    <td>
-                      R
-                      {sort(Number(e.purchase_units[0].amount.value))}
-                    </td>
+                    <td>Country code:</td>
+                    <td>{e.purchase_units[0].shipping.address.country_code}</td>
                   </tr>
-                </tbody>
-              </table>
-              <h1>Shipping Address</h1>
-              <table id="separate">
-                <tr>
-                  <th> </th>
-                  <th> </th>
-                </tr>
-                <tr>
-                  <td>Line 1:</td>
-                  <td>{e.purchase_units[0].shipping.address.address_line_1}</td>
-                </tr>
-                <tr>
-                  <td>City:</td>
-                  <td>{e.purchase_units[0].shipping.address.admin_area_2}</td>
-                </tr>
-                <tr>
-                  <td>Country code:</td>
-                  <td>{e.purchase_units[0].shipping.address.country_code}</td>
-                </tr>
-                <tr>
-                  <td>Postal code:</td>
-                  <td>{e.purchase_units[0].shipping.address.postal_code}</td>
-                </tr>
-                <tr>
-                  <td>Merchant id:</td>
-                  <td>{e.purchase_units[0].payee.merchant_id}</td>
-                </tr>
-                <tr>
-                  <td>Customer name:</td>
-                  <td>{e.purchase_units[0].shipping.name.full_name}</td>
-                </tr>
-              </table>
-            </div>
+                  <tr>
+                    <td>Postal code:</td>
+                    <td>{e.purchase_units[0].shipping.address.postal_code}</td>
+                  </tr>
+                  <tr>
+                    <td>Merchant id:</td>
+                    <td>{e.purchase_units[0].payee.merchant_id}</td>
+                  </tr>
+                  <tr>
+                    <td>Customer name:</td>
+                    <td>{e.purchase_units[0].shipping.name.full_name}</td>
+                  </tr>
+                </table>
+              </div>
+            </Slide>
           );
         }
       })

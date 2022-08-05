@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Slide from 'react-reveal/Slide';
 import MobileHeader from './Header';
 import AccNav from './AccNav';
 import { CartContext } from './CartContext';
@@ -108,19 +109,21 @@ export default function Orders() {
             </tr>
             {(orderData.length > 0) ? (
               orderData.map((e) => (
-                <tr key={e.id} className="order-row">
-                  <td>
-                    #
-                    {e.id}
-                  </td>
-                  <td>{moment.parseZone(e.create_time).format('dd/MM/yyyy')}</td>
-                  <td>{e.purchase_units[0].payments.captures[0].status}</td>
-                  <td>
-                    R
-                    {sort(Number(e.purchase_units[0].amount.value))}
-                  </td>
-                  <td><Link to={`/order/${e.id}`} className="orderViewBtn">View</Link></td>
-                </tr>
+                <Slide bottom key={e.id}>
+                  <tr className="order-row">
+                    <td>
+                      #
+                      {e.id}
+                    </td>
+                    <td>{moment.parseZone(e.create_time).format('dd/MM/yyyy')}</td>
+                    <td>{e.purchase_units[0].payments.captures[0].status}</td>
+                    <td>
+                      R
+                      {sort(Number(e.purchase_units[0].amount.value))}
+                    </td>
+                    <td><Link to={`/order/${e.id}`} className="orderViewBtn">View</Link></td>
+                  </tr>
+                </Slide>
               ))
             ) : (
               <tr><td>You have no orders</td></tr>

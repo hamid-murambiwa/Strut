@@ -1,8 +1,8 @@
 #container3 {
-  min-width: 85%;
-  max-width: 85%;
+  min-width: 82%;
+  max-width: 82%;
   position: absolute;
-  right: 10px;
+  right: 2.5%;
 }
 
 #container3 h3 {
@@ -31,16 +31,18 @@
 
 #grid-content img {
   width: 100%;
-  min-height: 50vh;
-  max-height: 50vh;
+  min-height: 45vh;
+  max-height: 45vh;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 #cat-img img {
   width: 100%;
-  min-height: 35vh !important;
-  max-height: 35vh !important;
+  min-height: 33vh !important;
+  max-height: 33vh !important;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .price {
@@ -55,9 +57,22 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1335px) {
   #container3 {
-    min-width: 80vw;
-    max-width: 80vw;
+    min-width: 75vw;
+    max-width: 75vw;
+  }
+
+  .rating-info {
+    flex-direction: column !important;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px !important;
+    gap: 2px !important;
+    text-align: center !important;
+  }
+
+  .go4197845992 {
+    white-space: nowrap;
   }
 }
