@@ -1,0 +1,61 @@
+.order-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-top: 1px solid rgb(192, 192, 192);
+  margin-top: -0.8%;
+  padding-top: 2%;
+}
+
+#o-table {
+  min-width: 80%;
+  border-collapse: separate;
+  border-spacing: 10px;
+  color: rgb(96, 96, 96);
+}
+
+#o-table td {
+  border-bottom: 1px solid rgb(196, 196, 196);
+  text-align: left !important;
+}
+
+/* #o-table th {
+  padding: 20px; /* Apply cell padding
+} */
+
+/* .order-row {
+  border-bottom: 1px solid rgb(196, 196, 196);
+  padding: 10px !important;
+} */
+
+.orderViewBtn {
+  text-decoration: none;
+  color: white;
+  background-color: grey;
+  padding: 5px;
+  font-size: x-small;
+  border-radius: 5px;
+}
+
+.orderViewBtn:hover {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  #o-table {
+    font-size: xx-small;
+    border-spacing: 5px;
+  }
+
+  .orderViewBtn {
+    font-size: 8px;
+    padding: 3px;
+  }
+
+  #o-table th,
+  table td {
+    padding: 5px; /* Apply cell padding */
+  }
+}
