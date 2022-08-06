@@ -279,7 +279,8 @@ body {
   }
 
   .hamburger {
-    width: 25px;
+    width: 30px;
+    margin-bottom: 1.5vh;
   }
 
   @keyframes shift-nav {
