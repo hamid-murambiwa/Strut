@@ -13,11 +13,11 @@ function Header() {
             Furniture Categories
           </button>
           <ul className="dropdown-menu">
-            <Link to="livingRoom">LIVING ROOM</Link>
-            <Link to="diningKitchen">DINING & KITCHEN</Link>
-            <Link to="bedroom">BEDROOM</Link>
-            <Link to="storageMedia">STORAGE & MEDIA</Link>
-            <Link to="office">OFFICE</Link>
+            <Link to="/shop/livingRoom">LIVING ROOM</Link>
+            <Link to="/shop/diningKitchen">DINING & KITCHEN</Link>
+            <Link to="/shop/bedroom">BEDROOM</Link>
+            <Link to="/shop/storageMedia">STORAGE & MEDIA</Link>
+            <Link to="/shop/office">OFFICE</Link>
           </ul>
         </div>
         <MenuItem><Link to="/about">About</Link></MenuItem>
