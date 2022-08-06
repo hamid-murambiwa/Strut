@@ -8,6 +8,7 @@ import img2 from '../../styling/images/wall3.jpeg';
 import img21 from '../../styling/images/wall2.jpeg';
 import img3 from '../../styling/images/wall.jpeg';
 import img31 from '../../styling/images/wall4.jpeg';
+import img4 from '../../styling/images/hamburger.png';
 import '@szhsin/react-menu/dist/core.css';
 import '../../styling/home.css';
 
@@ -28,7 +29,7 @@ function Home() {
         <section className={isActive ? 'header-con iactive' : 'header-con inactive'} onMouseEnter={() => { setIsActive(true); }} onMouseLeave={() => { setIsActive(false); }}>
           <div className={isActive ? 'nav-con nav-active' : 'nav-con nav-inactive'}>
             <header className="mobile-header">
-              <Menu className="menu-icon" menuButton={<MenuButton>☰</MenuButton>}>
+              <Menu className="menu-icon" menuButton={<MenuButton><img src={img4} className="hamburger" alt="hamburger" /></MenuButton>}>
                 <MenuItem><a href="/">Home</a></MenuItem>
                 <MenuItem><a href="/shop">Shop</a></MenuItem>
                 <div className="btn-group dropend">

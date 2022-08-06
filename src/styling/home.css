@@ -278,6 +278,10 @@ body {
     font-size: smaller;
   }
 
+  .hamburger {
+    width: 25px;
+  }
+
   @keyframes shift-nav {
     from {
       margin-left: 0;
