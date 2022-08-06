@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Slide from 'react-reveal/Slide';
 import StarsRating from 'react-star-rate';
 import { useSelector, useDispatch } from 'react-redux';
 import ImageGallery from 'react-image-gallery';
@@ -84,7 +83,6 @@ function ProductDisplay() {
         {furniture.length !== 0 ? (
           furniture.map((item) => (
             (item.id === Page()) ? (
-              <Slide bottom>
               <div className="p-c-con" key={item.id}>
                 <strong>{item.name}</strong>
                 <div>
@@ -251,7 +249,6 @@ function ProductDisplay() {
                   </div>
                 </div>
               </div>
-              </Slide>
             ) : (null)
           ))
         ) : (
