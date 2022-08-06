@@ -98,7 +98,7 @@ body {
 
 @keyframes shift-nav {
   from {
-    margin-left: 0;
+    margin-left: 5%;
   }
 
   to {
@@ -119,7 +119,7 @@ body {
   }
 
   to {
-    margin-left: 0;
+    margin-left: 5%;
   }
 }
 
@@ -127,9 +127,10 @@ body {
   display: flex;
   justify-content: space-between;
   width: 80%;
-  padding: 80px;
-  padding-top: 60px;
+  padding-top: 105px;
+  padding-left: 100px;
   color: #fff;
+  margin-left: 5vw;
 }
 
 .nav-con h1 {
@@ -319,7 +320,8 @@ body {
     align-items: center;
     gap: 15vw;
     width: 100%;
-    padding: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
     min-height: 30vh;
     max-height: 30vh;
   }
