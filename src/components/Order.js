@@ -87,8 +87,8 @@ export default function Order() {
       orderData.map((e) => {
         if (e.id === id) {
           return (
-            <Slide right>
-              <div className="order-info" key={e.id}>
+            <Slide right key={e.id}>
+              <div className="order-info">
                 <p>
                   0rder #
                   {e.id}

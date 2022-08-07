@@ -37,8 +37,8 @@ function DiningKitchen() {
           {furniture.length !== 0 ? (
             furniture.map((item, index) => (
               (item.category_id === 2) ? (
-                <Slide bottom>
-                  <Link to={`/shop/${item.id}`} className="grid-item" key={item.id}>
+                <Slide bottom key={item.id}>
+                  <Link to={`/shop/${item.id}`} className="grid-item">
                     <section id="grid-content">
                       <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={`${item.name}`} onMouseEnter={() => { toggleActive(index); }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }); }} onTouchStart={() => { toggleActive(index); }} onTouchEnd={() => { setIsActive1({ ...isActive1, activeObject: null }); }} />
                       <p>{item.name}</p>
