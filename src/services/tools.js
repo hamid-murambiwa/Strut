@@ -83,19 +83,19 @@ export function handleSubmit(item, cart, setCart, quantity, setMessage) {
 export function getDate(val) {
   const date_1 = new Date(val);
   const date_2 = new Date();
-  const difference = date_1.getTime() - date_2.getTime();
+  const difference = date_2.getTime() - date_1.getTime();
 
   const seconds = Math.floor(difference / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
-  const TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+  const TotalDays = Math.ceil(hours / 24);
 
   if (TotalDays >= 360) {
     return `${TotalDays / 360} years`;
   } if (TotalDays >= 31) {
     return `${TotalDays / 31} months`;
   } if (TotalDays < 1) {
-    if (minutes > 60) {
+    if (minutes < 60) {
       return `${minutes} minutes`;
     }
     return `${hours} hours`;
