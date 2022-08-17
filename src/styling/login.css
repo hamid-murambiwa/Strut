@@ -114,6 +114,7 @@
     min-width: 100%;
     max-width: 100%;
     border-bottom: 2px solid grey;
+    margin-top: 5vh;
   }
 
   .login-container {
