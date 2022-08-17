@@ -279,6 +279,40 @@ body {
     font-size: smaller;
   }
 
+  .h-active {
+    animation-name: h-rot;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  @keyframes h-rot {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(90deg);
+    }
+  }
+
+  .h-inactive {
+    animation-name: h-rott;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  @keyframes h-rott {
+    from {
+      transform: rotate(90deg);
+    }
+
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
   .hamburger {
     width: 25px;
     margin-bottom: 1.5vh;
