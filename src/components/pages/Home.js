@@ -22,6 +22,7 @@ function Home() {
   const [isActive, setIsActive] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
+  const [isActive4, setIsActive4] = useState(false);
 
   return (
     <section>
@@ -29,7 +30,14 @@ function Home() {
         <section className={isActive ? 'header-con iactive' : 'header-con inactive'} onMouseEnter={() => { setIsActive(true); }} onMouseLeave={() => { setIsActive(false); }}>
           <div className={isActive ? 'nav-con nav-active' : 'nav-con nav-inactive'}>
             <header className="mobile-header">
-              <Menu className="menu-icon" menuButton={<MenuButton><img src={img4} className="hamburger" alt="hamburger" /></MenuButton>}>
+              <Menu
+                className="menu-icon"
+                menuButton={(
+                  <MenuButton onClick={() => { setIsActive4(!isActive4); }}>
+                    <img src={img4} className={isActive4 ? 'hamburger h-active' : 'hamburger h-inactive'} alt="hamburger" />
+                  </MenuButton>
+                )}
+              >
                 <MenuItem><a href="/">Home</a></MenuItem>
                 <MenuItem><a href="/shop">Shop</a></MenuItem>
                 <div className="btn-group dropend">

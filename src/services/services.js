@@ -63,13 +63,15 @@ export function componentDidMount(findId, Page, averageRating, reviews, setRevie
   fetch(`${BACK_END_URL}/categories/${findId()}/furniture_items/${Page()}/reviews`)
     .then(async (response) => {
       const data = await response.json();
-      reviews = data;
-      setReviews(data);
-      handleAverage(reviews, averageRating, setAverageRating);
 
       if (!response.ok) {
         const error = (data && data.message) || response.statusText;
         return Promise.reject(error);
+      } else {
+        reviews = data;
+        console.log(data);
+        setReviews(data);
+        handleAverage(reviews, averageRating, setAverageRating);
       }
     })
     .catch((error) => {
@@ -149,7 +151,8 @@ export function handleAverage(reviews, averageRating, setAverageRating) {
   }
 }
 
-export const handleReview = async (rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage) => {
+export const handleReview = async (e, rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage) => {
+  e.preventDefault();
   const data = {
     overal_rating: rating,
     username: userData["user"]["firstname"],
@@ -165,16 +168,18 @@ export const handleReview = async (rating, title, reviewDes, userData, setTitle,
       },
       body: JSON.stringify(data),
     });
-    if (res.status === 200) {
+    if (res.statusText === 'Created') {
+      console.log(res);
       setTitle('');
       setReviewDes('');
       setMessage('Review created successfully');
+      window.location.reload();
     } else {
       setMessage('Some error occured');
     }
-  } catch (err) {
-    console.log(err);
-  }
+    } catch (err) {
+      console.log(err);
+    }
 };
 
 export const handleSignup = async (

@@ -44,6 +44,8 @@ function ProductDisplay() {
     apiCalls.componentDidMount(findId, Page, averageRating, reviews, setReviews, setMessage, message, setAverageRating);
   }, [dispatch]);
 
+  console.log(reviews);
+
   furniture.map((item) => (
     (item.id === Page()) ? (
       images = [
@@ -188,7 +190,7 @@ function ProductDisplay() {
                           {userData.logged_in ? (
                             <div className="App">
                               <i>Required fields are marked with *</i>
-                              <form onSubmit={(e) => apiCalls.handleReview(rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage)}>
+                              <form onSubmit={(e) => apiCalls.handleReview(e, rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage)}>
                                 <div className="f-con">
                                   <section className="overal">
                                     <strong>Overall Rating*</strong>
