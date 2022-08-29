@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import { Link } from 'react-router-dom';
 
 function Header() {
-  const [isActive, setIsActive] = useState(false);
   return (
     <header className="mobile-header sec">
-      <Menu className="menu-icon" menuButton={<MenuButton onClick={() => { setIsActive(!isActive); }} className={isActive ? 'szh-menu-button h-active' : 'szh-menu-button h-inactive'}>&#9776;</MenuButton>}>
+      <Menu className="menu-icon" menuButton={({ open }) => (<MenuButton className={open ? 'szh-menu-button h-active' : 'szh-menu-button h-inactive'}>&#9776;</MenuButton>)}>
         <MenuItem><Link to="/">Home</Link></MenuItem>
         <MenuItem><Link to="/shop">Shop</Link></MenuItem>
         <div className="btn-group dropend">

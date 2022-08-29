@@ -12,7 +12,6 @@ import { getAllOrders } from '../redux/orders/order';
 import { sort } from '../services/tools';
 import img from '../styling/images/shopping-cart.png';
 import img2 from '../styling/images/user.png';
-// import img3 from '../../styling/images/lock.png';
 import * as apiCalls from '../services/services';
 import '../styling/ords.css';
 

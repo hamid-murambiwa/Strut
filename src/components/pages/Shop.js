@@ -15,14 +15,13 @@ function Shop() {
   const [message, setMessage] = useState('');
   const { cart } = useContext(CartContext);
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
-  const [isActive, setIsActive] = useState(false);
 
   return (
     <div>
       <section id="shop-container">
         <div className="s-b-con">
           <header className="mobile-header sec">
-            <Menu className="menu-icon" menuButton={<MenuButton onClick={() => { setIsActive(!isActive); }} className={isActive ? 'szh-menu-button h-active' : 'szh-menu-button h-inactive'}>&#9776;</MenuButton>}>
+            <Menu className="menu-icon" menuButton={({ open }) => (<MenuButton className={open ? 'szh-menu-button h-active' : 'szh-menu-button h-inactive'}>&#9776;</MenuButton>)}>
               <MenuItem><a href="/">Home</a></MenuItem>
               <MenuItem><a href="/shop">Shop</a></MenuItem>
               <div className="btn-group dropend">

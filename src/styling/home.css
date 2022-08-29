@@ -470,6 +470,11 @@ body {
     justify-content: center !important;
     max-height: 55vh !important;
   }
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    left: -10px;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -484,6 +489,11 @@ body {
   .d-con {
     max-height: 380px !important;
     padding-top: 15%;
+  }
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    left: 0;
   }
 }
 
