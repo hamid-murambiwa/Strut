@@ -166,7 +166,7 @@
   }
 
   .dropdown-menu.show {
-    inset: 25px auto auto -25vw !important;
+    inset: 0 auto auto 5vw !important;
   }
 
   .c-info-con {

@@ -122,6 +122,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  #dm2.show {
+    inset: 0 auto auto -20vw !important;
+    top: 20px !important;
+  }
+
   .shop-navigation {
     display: none;
   }

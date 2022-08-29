@@ -54,7 +54,7 @@ function Account() {
                 </div>
               </button>
               {userData.logged_in ? (
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul className="dropdown-menu" id="dm2" aria-labelledby="dropdownMenuButton1">
                   <li>
                     <strong>
                       Hi,
@@ -68,7 +68,7 @@ function Account() {
                   <li><button type="button" className="s-o" onClick={() => apiCalls.handleSignout(setMessage)}>LOGOUT</button></li>
                 </ul>
               ) : (
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul className="dropdown-menu" id="dm2" aria-labelledby="dropdownMenuButton1">
                   <li><Link className="dropdown-item" to="/login">LOGIN</Link></li>
                   <li><Link className="dropdown-item" to="/signup">CREATE AN ACCOUNT</Link></li>
                 </ul>

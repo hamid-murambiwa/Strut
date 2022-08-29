@@ -162,7 +162,7 @@ body {
 .carousel-item {
   text-decoration: none;
   width: 100% !important;
-  min-height: 65vh !important;
+  min-height: 65vh;
 }
 
 #carousel-content {
@@ -379,8 +379,8 @@ body {
     width: 100%;
     padding-top: 20px;
     padding-left: 20px;
-    min-height: 30vh;
-    max-height: 30vh;
+    min-height: 35vh;
+    max-height: 35vh;
   }
 
   .nav-con nav {
@@ -414,7 +414,7 @@ body {
   }
 
   .carousel-control-next {
-    left: 54px !important;
+    left: 105px !important;
   }
 
   #container2 {
@@ -441,6 +441,7 @@ body {
   .szh-menu {
     margin-top: 5px !important;
     padding: 15px;
+    left: -53.6016px !important;
   }
 
   .szh-menu li {
@@ -457,23 +458,29 @@ body {
   }
 
   .carousel {
-    max-height: 55vh !important;
+    max-height: 450px !important;
   }
 
   #carousel-content {
-    max-height: 55vh !important;
+    max-height: 450px !important;
   }
 
   .d-con {
     display: flex;
     flex-direction: column !important;
     justify-content: center !important;
-    max-height: 55vh !important;
+    max-height: 450px !important;
+    padding: 10%;
+    padding-top: 16%;
   }
 
   .carousel-control-next,
   .carousel-control-prev {
     left: -10px;
+  }
+
+  .carousel-item {
+    min-height: 450px;
   }
 }
 
@@ -495,9 +502,17 @@ body {
   .carousel-control-prev {
     left: 0;
   }
+
+  .carousel-control-next {
+    left: 54px !important;
+  }
 }
 
 @media screen and (max-width: 390px) {
+  .carousel-item {
+    max-height: 400px !important;
+  }
+
   .carousel {
     max-height: 400px !important;
   }
