@@ -22,7 +22,6 @@ function Home() {
   const [isActive, setIsActive] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
-  const [isActive4, setIsActive4] = useState(false);
 
   return (
     <section>
@@ -32,9 +31,9 @@ function Home() {
             <header className="mobile-header">
               <Menu
                 className="menu-icon"
-                menuButton={(
-                  <MenuButton onClick={() => { setIsActive4(!isActive4); }}>
-                    <img src={img4} className={isActive4 ? 'hamburger h-active' : 'hamburger h-inactive'} alt="hamburger" />
+                menuButton={({ open }) => (
+                  <MenuButton>
+                    <img src={img4} className={open ? 'hamburger h-active' : 'hamburger h-inactive'} alt="hamburger" />
                   </MenuButton>
                 )}
               >
@@ -44,7 +43,9 @@ function Home() {
                   <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     Furniture Categories
                   </button>
-                  <ul className="dropdown-menu">
+                  <ul
+                    className="dropdown-menu"
+                  >
                     <Link to="/shop/livingRoom">LIVING ROOM</Link>
                     <Link to="/shop/diningKitchen">DINING & KITCHEN</Link>
                     <Link to="/shop/bedroom">BEDROOM</Link>

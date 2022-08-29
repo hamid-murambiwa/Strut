@@ -275,6 +275,28 @@ body {
   background-repeat: no-repeat;
 }
 
+@media screen and (max-width: 1300px) and (min-width: 768px) {
+  .d-con h1 {
+    font-size: 20px;
+  }
+
+  .shop-btn h3 {
+    font-size: small;
+  }
+
+  .carousel-control-next {
+    left: 45px !important;
+  }
+
+  .nav-con h1 {
+    font-size: large;
+  }
+
+  .nav-con nav a {
+    font-size: smaller;
+  }
+}
+
 @media screen and (max-width: 768px) {
   body {
     font-size: smaller;
@@ -402,7 +424,7 @@ body {
 
   .c-2-a {
     width: 100%;
-    min-height: 50vh;
+    min-height: 400px;
   }
 
   .c-2-b {
@@ -413,7 +435,7 @@ body {
 
   .c-2-c {
     width: 100%;
-    min-height: 50vh;
+    min-height: 400px;
   }
 
   .szh-menu {
@@ -435,64 +457,65 @@ body {
   }
 
   .carousel {
-    max-height: 60vh !important;
+    max-height: 55vh !important;
   }
 
   #carousel-content {
-    max-height: 60vh !important;
+    max-height: 55vh !important;
   }
 
   .d-con {
     display: flex;
     flex-direction: column !important;
     justify-content: center !important;
-    max-height: 60vh !important;
+    max-height: 55vh !important;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .carousel {
-    max-height: 48vh !important;
+    max-height: 380px !important;
   }
 
   #carousel-content {
-    max-height: 48vh !important;
+    max-height: 380px !important;
   }
 
   .d-con {
-    max-height: 48vh !important;
+    max-height: 380px !important;
+    padding-top: 15%;
   }
 }
 
 @media screen and (max-width: 390px) {
   .carousel {
-    max-height: 55vh !important;
+    max-height: 400px !important;
   }
 
   #carousel-content {
-    max-height: 55vh !important;
+    max-height: 400px !important;
   }
 
   .d-con {
-    max-height: 55vh !important;
+    max-height: 400px !important;
   }
 }
 
 @media screen and (max-width: 350px) {
   .carousel {
-    max-height: 70vh !important;
+    max-height: 350px !important;
   }
 
   #carousel-content {
-    max-height: 70vh !important;
+    max-height: 350px !important;
   }
 
   .d-con {
-    max-height: 70vh !important;
+    max-height: 350px !important;
   }
 
   .carousel-item {
-    max-height: 70vh !important;
+    max-height: 350px !important;
   }
 
   .carousel-control-next,
