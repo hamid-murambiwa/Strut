@@ -2,7 +2,7 @@
 
 # Strut 
 
-> A simple app for an online store for furniture items
+> This a simple application with a landing page and an online store for furniture items.
 
 ## Built With
 
