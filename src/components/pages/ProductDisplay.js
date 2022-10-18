@@ -143,7 +143,7 @@ function ProductDisplay() {
                     <p>
                       {reviews.length}
                       {' '}
-                      reviews
+                      {reviews.length === 1 ? 'review' : 'reviews'}
                     </p>
                   </div>
                   <button type="button" className="btn btn-primary checkout long" data-bs-toggle="modal" data-bs-target="#exampleModal">
