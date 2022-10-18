@@ -94,7 +94,11 @@ function Cart() {
             </Link>
             <h3>OR</h3>
             {userData.logged_in ? (
-            <Link to="/shop/paypal" className="c-btn">
+            <Link to={cart.length > 0 ? "/shop/paypal" : ""} className="c-btn" onClick={() => {
+              if (cart.length < 1) {
+                alert("Your cart is empty");
+              }
+            }}>
               CHECKOUT NOW
             </Link>
             ) : (
