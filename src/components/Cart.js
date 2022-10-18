@@ -76,7 +76,7 @@ function Cart() {
             <strong>
               {totalItems()}
               {' '}
-              items
+              {totalItems() === 1 ? 'item' : 'items'}
             </strong>
           </div>
           <hr />
