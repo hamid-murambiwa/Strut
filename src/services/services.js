@@ -232,17 +232,16 @@ export const handleSignup = async (
   }
 };
 
-export const handleSignin = async (e, username, password, passwordConfirmation, setErrorMessage) => {
+export const handleSignin = async (e, username, password, setErrorMessage) => {
   setErrorMessage('');
   let response = [];
   e.preventDefault();
   const data = { session:{
     username: username,
     password: password,
-    password_confirmation: passwordConfirmation
+    password_confirmation: password
     }
   };
-  if (password === passwordConfirmation) {
     setErrorMessage('Loading...');
   try {
     const res = await fetch(`${BACK_END_URL}/login`, {
@@ -264,9 +263,6 @@ export const handleSignin = async (e, username, password, passwordConfirmation, 
     }
   } catch (err) {
     setErrorMessage([response['errors']]);
-  }
-  } else {
-    setErrorMessage(['Password and password confirmation do not match']);
   }
 }
 

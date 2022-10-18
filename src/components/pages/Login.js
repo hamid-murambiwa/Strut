@@ -14,7 +14,6 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState([]);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [email, setEmail] = useState('');
   const { cart } = useContext(CartContext);
   return (
@@ -95,7 +94,6 @@ function Login() {
                 e,
                 username,
                 password,
-                passwordConfirmation,
                 setErrorMessage,
               );
             }}
@@ -126,21 +124,6 @@ function Login() {
                 required
               />
             </div>
-            <div className="error-message">{errorMessage[0] === 'Password and password confirmation do not match' ? <p>{errorMessage}</p> : null}</div>
-            <div className="l-con">
-              <label>
-                Password Confirmation
-                {' '}
-                <span>required</span>
-              </label>
-              <input
-                type="password"
-                value={passwordConfirmation}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}
-                required
-              />
-            </div>
-
             <button
               type="button"
               className="btn btn-primary for-btn-to"

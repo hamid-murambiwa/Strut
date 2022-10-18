@@ -91,29 +91,29 @@ export function getDate(val) {
   const TotalDays = Math.ceil(hours / 24);
 
   if (TotalDays >= 360) {
-    if (Math.floor(TotalDays / 360) === 1) {
-      return `${Math.floor(TotalDays / 360)} year`
+    if (Math.floor(TotalDays / 360) <= 1) {
+      return `1 year`
      }
     return `${Math.floor(TotalDays / 360)} years`;
   } if (TotalDays >= 31) {
-    if (Math.floor(TotalDays / 31) === 1) {
-      return `${Math.floor(TotalDays / 31)} month`;
+    if (Math.floor(TotalDays / 31) <= 1) {
+      return `1 month`;
     }
     return `${Math.floor(TotalDays / 31)} months`;
   } if (TotalDays < 1) {
       if (minutes < 60) {
-        if (minutes === 1) {
-          return `${minutes} minute`;
+        if (minutes <= 1) {
+          return `1 minute`;
         }
         return `${minutes} minutes`;
       }
-      if (hours === 1) {
-        return `${hours} hour`;
+      if (hours <= 1) {
+        return `1 hour`;
       }
       return `${hours} hours`;
   }
-  if (TotalDays === 1) {
-    return `${TotalDays} day`;
+  if (TotalDays <= 1) {
+    return `1 day`;
   }
   return `${TotalDays} days`;
 }
