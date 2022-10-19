@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
 import {
   useCart, useCartRemove, useCartIncrement, useCartDecrement,
-} from './CartContext';
-import img from '../styling/images/delete.png';
-import img2 from '../styling/images/lock.png';
-import { sort } from '../services/tools';
-import '../styling/cart.css';
+} from '../../CartContext';
+import img from '../../../styling/images/delete.png';
+import img2 from '../../../styling/images/lock.png';
+import { sort } from '../../../services/tools';
+import '../../../styling/cart.css';
 
 function Cart() {
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));

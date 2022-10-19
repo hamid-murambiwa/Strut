@@ -25,11 +25,16 @@ function ResetConfirmation() {
                 Furniture Categories
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><Link className="dropdown-item" to="/shop/livingRoom">LIVING ROOM</Link></li>
-                <li><Link className="dropdown-item" to="/shop/diningKitchen">DINING & KITCHEN</Link></li>
-                <li><Link className="dropdown-item" to="/shop/bedroom">BEDROOM</Link></li>
-                <li><Link className="dropdown-item" to="/shop/storageMedia">STORAGE & MEDIA</Link></li>
-                <li><Link className="dropdown-item" to="/shop/office">OFFICE</Link></li>
+                <li />
+                <a className="dropdown-item" href="/shop/categoryView/1">LIVING ROOM</a>
+                <li />
+                <a className="dropdown-item" href="/shop/categoryView/2">DINING & KITCHEN</a>
+                <li />
+                <a className="dropdown-item" href="/shop/categoryView/3">BEDROOM</a>
+                <li />
+                <a className="dropdown-item" href="/shop/categoryView/4">STORAGE & MEDIA</a>
+                <li />
+                <a className="dropdown-item" href="/shop/categoryView/5">OFFICE</a>
               </ul>
             </div>
             <Link to="/contact">Contact</Link>

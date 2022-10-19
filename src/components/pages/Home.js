@@ -46,11 +46,11 @@ function Home() {
                   <ul
                     className="dropdown-menu"
                   >
-                    <Link to="/shop/livingRoom">LIVING ROOM</Link>
-                    <Link to="/shop/diningKitchen">DINING & KITCHEN</Link>
-                    <Link to="/shop/bedroom">BEDROOM</Link>
-                    <Link to="/shop/storageMedia">STORAGE & MEDIA</Link>
-                    <Link to="/shop/office">OFFICE</Link>
+                    <a href="/shop/categoryView/1">LIVING ROOM</a>
+                    <a href="/shop/categoryView/2">DINING & KITCHEN</a>
+                    <a href="/shop/categoryView/3">BEDROOM</a>
+                    <a href="/shop/categoryView/4">STORAGE & MEDIA</a>
+                    <a href="/shop/categoryView/5">OFFICE</a>
                   </ul>
                 </div>
                 <MenuItem><a href="/about">About</a></MenuItem>

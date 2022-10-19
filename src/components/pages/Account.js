@@ -7,7 +7,7 @@ import img from '../../styling/images/shopping-cart.png';
 import img2 from '../../styling/images/user.png';
 import img3 from '../../styling/images/lock.png';
 import MobileHeader from '../Header';
-import AccNav from '../AccNav';
+import AccNav from './shopPages/AccNav';
 import '../../styling/account.css';
 
 function Account() {
@@ -36,11 +36,11 @@ function Account() {
                 Furniture Categories
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><Link className="dropdown-item" to="/shop/livingRoom">LIVING ROOM</Link></li>
-                <li><Link className="dropdown-item" to="/shop/diningKitchen">DINING & KITCHEN</Link></li>
-                <li><Link className="dropdown-item" to="/shop/bedroom">BEDROOM</Link></li>
-                <li><Link className="dropdown-item" to="/shop/storageMedia">STORAGE & MEDIA</Link></li>
-                <li><Link className="dropdown-item" to="/shop/office">OFFICE</Link></li>
+                <a className="dropdown-item" href="/shop/categoryView/1">LIVING ROOM</a>
+                <a className="dropdown-item" href="/shop/categoryView/2">DINING & KITCHEN</a>
+                <a className="dropdown-item" href="/shop/categoryView/3">BEDROOM</a>
+                <a className="dropdown-item" href="/shop/categoryView/4">STORAGE & MEDIA</a>
+                <a className="dropdown-item" href="/shop/categoryView/5">OFFICE</a>
               </ul>
             </div>
             <Link to="/contact">Contact</Link>

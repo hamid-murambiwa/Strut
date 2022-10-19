@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
-import { fetchAllCategories } from '../redux/categories/categories';
-import '../styling/main.css';
+import { fetchAllCategories } from '../../../redux/categories/categories';
+import '../../../styling/main.css';
 
 function Main() {
   const dispatch = useDispatch();

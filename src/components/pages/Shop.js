@@ -29,11 +29,11 @@ function Shop() {
                   Furniture Categories
                 </button>
                 <ul className="dropdown-menu">
-                  <Link to="livingRoom">LIVING ROOM</Link>
-                  <Link to="diningKitchen">DINING & KITCHEN</Link>
-                  <Link to="bedroom">BEDROOM</Link>
-                  <Link to="storageMedia">STORAGE & MEDIA</Link>
-                  <Link to="office">OFFICE</Link>
+                  <a href="/shop/categoryView/1">LIVING ROOM</a>
+                  <a href="/shop/categoryView/2">DINING & KITCHEN</a>
+                  <a href="/shop/categoryView/3">BEDROOM</a>
+                  <a href="/shop/categoryView/4">STORAGE & MEDIA</a>
+                  <a href="/shop/categoryView/5">OFFICE</a>
                 </ul>
               </div>
               <MenuItem><a href="/about">About</a></MenuItem>
@@ -93,11 +93,11 @@ function Shop() {
           <section className="shop-navigation">
             <Link to="/shop"><strong>FURNITURE</strong></Link>
             <nav>
-              <Link to="livingRoom">LIVING ROOM</Link>
-              <Link to="diningKitchen">DINING & KITCHEN</Link>
-              <Link to="bedroom">BEDROOM</Link>
-              <Link to="storageMedia">STORAGE & MEDIA</Link>
-              <Link to="office">OFFICE</Link>
+              <a href="/shop/categoryView/1">LIVING ROOM</a>
+              <a href="/shop/categoryView/2">DINING & KITCHEN</a>
+              <a href="/shop/categoryView/3">BEDROOM</a>
+              <a href="/shop/categoryView/4">STORAGE & MEDIA</a>
+              <a href="/shop/categoryView/5">OFFICE</a>
             </nav>
           </section>
         </Slide>

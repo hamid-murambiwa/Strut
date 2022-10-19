@@ -2,9 +2,9 @@ import React, {
   useState, useRef, useEffect,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as apiCalls from '../services/services';
-import { useCart } from './CartContext';
-import '../styling/App.css';
+import * as apiCalls from '../../../services/services';
+import { useCart } from '../../CartContext';
+import '../../../styling/App.css';
 
 export default function Paypal() {
   const [message, setMessage] = useState('');
