@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import StarsRating from 'react-star-rate';
 import { useSelector, useDispatch } from 'react-redux';
 import ImageGallery from 'react-image-gallery';
 import { getAllFurniture } from '../../redux/furnitureItems/furniture';
-import { CartContext } from '../CartContext';
+import { useCartAdd } from '../CartContext';
 import {
-  Page, findId, findRoute, findCategoryName, handleSubmit, getDate, sort, decrement, increment,
+  Page, findId, findRoute, findCategoryName, getDate, sort, decrement, increment,
 } from '../../services/tools';
 import * as apiCalls from '../../services/services';
 import img from '../../styling/images/button.png';
@@ -26,13 +26,13 @@ function ProductDisplay() {
   }]);
 
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
-  const { cart, setCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState('');
   const [reviewBtn, setReviewBtn] = useState(false);
   const [title, setTitle] = useState('');
   const [reviewDes, setReviewDes] = useState('');
   const [rating, setRating] = useState(0);
+  const add = useCartAdd();
 
   const [averageRating, setAverageRating] = useState(0);
 
@@ -107,7 +107,7 @@ function ProductDisplay() {
                     +
                   </button>
                 </div>
-                <button type="button" className="c-btn" onClick={() => handleSubmit(item, cart, setCart, quantity, setMessage, Page)}>
+                <button type="button" className="c-btn" onClick={() => add(item, quantity, setMessage, Page)}>
                   ADD TO CART
                 </button>
                 <div className={reviewBtn ? 'rating-con+ inactiveBTN' : 'rating-con+ activeBTN'} onClick={() => setReviewBtn(true)}>

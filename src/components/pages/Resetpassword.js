@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../CartContext';
+import { useCart } from '../CartContext';
 import MobileHeader from '../Header';
 import * as apiCalls from '../../services/services';
 import img from '../../styling/images/shopping-cart.png';
@@ -13,12 +13,12 @@ function Reset() {
   const [errorMessage, setErrorMessage] = useState('');
   const [message, setMessage] = useState('');
   const [password, setPassword] = useState('');
+  const cart = useCart();
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const urlString = window.location.href;
   const url = new URL(urlString);
   const token = url.searchParams.get('token');
 
-  const { cart } = useContext(CartContext);
   return (
     <div className="container4">
       <section className="about-nav-container">

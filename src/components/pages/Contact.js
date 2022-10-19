@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MobileHeader from '../Header';
-import { CartContext } from '../CartContext';
+import { useCart } from '../CartContext';
 import * as apiCalls from '../../services/services';
 import '@szhsin/react-menu/dist/core.css';
 import img from '../../styling/images/shopping-cart.png';
@@ -9,7 +9,7 @@ import img2 from '../../styling/images/user.png';
 import '../../styling/contact.css';
 
 function Contact() {
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   const [message, setMessage] = useState('');
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   return (
@@ -96,7 +96,7 @@ function Contact() {
         <h1>Leave a message</h1>
         <div id="contacts" className="contact-con">
           <div className="form-con">
-            <form className="form" action="https://formspree.io/f/xnqwgead" method="post">
+            <form className="form" action="https://formspree.io/f/xknevbba" method="post">
               <input name="User" placeholder="Username" type="text" className="form-control" required />
               <input placeholder="Email Address" name="Email" id="email" type="email" className="form-control" required />
               <textarea name="message" rows="4" placeholder="Leave a Message" className="form-textarea" required />

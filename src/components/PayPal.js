@@ -1,15 +1,15 @@
 import React, {
-  useContext, useState, useRef, useEffect,
+  useState, useRef, useEffect,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as apiCalls from '../services/services';
-import { CartContext } from './CartContext';
+import { useCart } from './CartContext';
 import '../styling/App.css';
 
 export default function Paypal() {
   const [message, setMessage] = useState('');
   const [price, setPrice] = useState(0);
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   const paypal = useRef();
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const navigate = useNavigate();

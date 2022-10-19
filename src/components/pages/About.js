@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../CartContext';
+import { useCart } from '../CartContext';
 import MobileHeader from '../Header';
 import * as apiCalls from '../../services/services';
 import '@szhsin/react-menu/dist/core.css';
@@ -11,7 +11,8 @@ import '../../styling/about.css';
 function About() {
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const [message, setMessage] = useState('');
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
+
   return (
     <div className="container4">
       <section className="about-nav-container">

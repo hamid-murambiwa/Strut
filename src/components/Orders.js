@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, {
-  useContext, useState, useEffect,
+  useState, useEffect,
 } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
 import MobileHeader from './Header';
 import AccNav from './AccNav';
-import { CartContext } from './CartContext';
+import { useCart } from './CartContext';
 import { getAllOrders } from '../redux/orders/order';
 import { sort } from '../services/tools';
 import img from '../styling/images/shopping-cart.png';
@@ -19,7 +19,7 @@ export default function Orders() {
   const orderData = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   const [message, setMessage] = useState('');
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orderReducer);
   useEffect(() => {

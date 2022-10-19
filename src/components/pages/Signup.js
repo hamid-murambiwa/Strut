@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../CartContext';
+import { useCart } from '../CartContext';
 import * as apiCalls from '../../services/services';
 import img from '../../styling/images/shopping-cart.png';
 import img2 from '../../styling/images/user.png';
@@ -19,7 +19,7 @@ function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   return (
     <div>
       <section className="about-nav-container">

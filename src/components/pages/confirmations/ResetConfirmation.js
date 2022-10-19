@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../CartContext';
+import { useCart } from '../../CartContext';
 import * as apiCalls from '../../../services/services';
 import MobileHeader from '../../Header';
 import img from '../../../styling/images/shopping-cart.png';
 import img2 from '../../../styling/images/user.png';
 
 function ResetConfirmation() {
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   const [message, setMessage] = useState('');
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
   return (

@@ -1,55 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
-import { CartContext } from './CartContext';
+import {
+  useCart, useCartRemove, useCartIncrement, useCartDecrement,
+} from './CartContext';
 import img from '../styling/images/delete.png';
 import img2 from '../styling/images/lock.png';
 import { sort } from '../services/tools';
 import '../styling/cart.css';
 
 function Cart() {
-  const { cart, setCart } = useContext(CartContext);
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
-
-  function increment(id) {
-    /* eslint-disable */
-    cart.map((e, index) => {
-      if (e.id === id) {
-        cart[index].price = e.price + (e.price / e.quantity);
-        cart[index].quantity = e.quantity + 1;
-        setCart(cart);
-        const data = JSON.stringify(cart);
-        localStorage.setItem('cart', data);
-      }
-    });
-    window.location.reload();
-  }
-
-  function decrement(id) {
-    /* eslint-disable */
-    cart.map((e, index) => {
-      if (e.id === id && e.quantity > 1) {
-        cart[index].price = e.price - (e.price / e.quantity);
-        cart[index].quantity = e.quantity - 1;
-        setCart(cart);
-        const data = JSON.stringify(cart);
-        localStorage.setItem('cart', data);
-      }
-    });
-    window.location.reload();
-  }
-
-  function handleDelete(index) {
-    cart.splice(index, 1);
-    setCart(cart);
-    const data = JSON.stringify(cart);
-    localStorage.setItem('cart', data);
-    window.location.reload();
-  }
+  const cart = useCart();
+  const remove = useCartRemove();
+  const increment = useCartIncrement();
+  const decrement = useCartDecrement();
 
   function totalPrice() {
     let price = 0;
 
+    // eslint-disable-next-line
     cart.map((e) => {
       price += e.price;
     });
@@ -60,6 +30,7 @@ function Cart() {
   function totalItems() {
     let quantity = 0;
 
+    // eslint-disable-next-line
     cart.map((e) => {
       quantity += e.quantity;
     });
@@ -94,38 +65,45 @@ function Cart() {
             </Link>
             <h3>OR</h3>
             {userData.logged_in ? (
-            <Link to={cart.length > 0 ? "/shop/paypal" : ""} className="c-btn" onClick={() => {
-              if (cart.length < 1) {
-                alert("Your cart is empty");
-              }
-            }}>
-              CHECKOUT NOW
-            </Link>
+              // eslint-disable-next-line
+              <Link
+                to={cart.length > 0 ? '/shop/paypal' : ''}
+                className="c-btn"
+                onClick={() => {
+                  if (cart.length < 1) {
+                    // eslint-disable-next-line
+                    alert('Your cart is empty');
+                  }
+                }}
+              >
+                CHECKOUT NOW
+              </Link>
             ) : (
-                  <>
-                  <button type="button" class="c-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    CHECKOUT NOW
-                  </button><div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">UNAUTHORISED</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <ul class="login-pop-up">
-                            <strong className="CHECK">Login To Checkout</strong>
-                            <img src={img2} alt="lock icon" className="lock-icon" />
-                            <li><Link onClick={() => { setTimeout(() => { window.location.reload(); }, 10) }} to="/login">Login</Link></li>
-                          </ul>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
+              <>
+                <button type="button" className="c-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  CHECKOUT NOW
+                </button>
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div className="modal-dialog">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">UNAUTHORISED</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                      </div>
+                      <div className="modal-body">
+                        <ul className="login-pop-up">
+                          <strong className="CHECK">Login To Checkout</strong>
+                          <img src={img2} alt="lock icon" className="lock-icon" />
+                          <li><Link onClick={() => { setTimeout(() => { window.location.reload(); }, 10); }} to="/login">Login</Link></li>
+                        </ul>
+                      </div>
+                      <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
-                  </>
+                </div>
+              </>
             )}
           </div>
         </div>
@@ -155,7 +133,7 @@ function Cart() {
                     -
                   </button>
                 </div>
-                <button type="button" className="delete-cart-btn" onClick={() => handleDelete(index)}>
+                <button type="button" className="delete-cart-btn" onClick={() => remove(index)}>
                   <img src={img} alt="delete icon" />
                   Delete
                 </button>

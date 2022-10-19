@@ -48,38 +48,6 @@ export function findCategoryName() {
   }
 }
 
-export function handleSubmit(item, cart, setCart, quantity, setMessage) {
-  let value = false;
-
-  cart.map((e) => {
-    if (e.name === item.name) {
-      value = true;
-    }
-  });
-  if (value) {
-    cart.map((i, index) => {
-      if (i.name === item.name) {
-        cart[index].quantity = i.quantity + quantity;
-        cart[index].price = quantity === 1 ? i.price + item.price : i.price * quantity;
-        setCart(cart);
-        const data = JSON.stringify(cart);
-        localStorage.setItem('cart', data);
-      }
-    });
-  } else {
-    item.quantity = quantity;
-    item.price *= quantity;
-    cart.push(item);
-    setCart(cart);
-    const data = JSON.stringify(cart);
-    localStorage.setItem('cart', data);
-  }
-  setTimeout(() => {
-    window.location.href = `/shop/${Page()}`;
-  }, 150);
-  setMessage('Item added successfully');
-}
-
 export function getDate(val) {
   const date_1 = new Date(val);
   const date_2 = new Date();

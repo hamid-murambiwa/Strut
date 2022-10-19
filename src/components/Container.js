@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useContext } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Main from './Main';
@@ -20,17 +20,12 @@ import ResetConfirmation from './pages/confirmations/ResetConfirmation';
 import PayPal from './PayPal';
 import Orders from './Orders';
 import Order from './Order';
-import { CartContext } from './CartContext';
+import { CartProvider } from './CartContext';
 
 function Container() {
-  const [cart, setCart] = useState(useContext(CartContext));
-
-  const data = useMemo(() => ({
-    cart, setCart,
-  }), [cart, setCart]);
   return (
     <Router>
-      <CartContext.Provider value={data}>
+      <CartProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="shop" element={<Shop />}>
@@ -54,7 +49,7 @@ function Container() {
           <Route path="orders" element={<Orders />} />
           <Route path="order/:id" element={<Order />} />
         </Routes>
-      </CartContext.Provider>
+      </CartProvider>
     </Router>
   );
 }

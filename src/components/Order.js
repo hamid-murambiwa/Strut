@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
 import MobileHeader from './Header';
 import AccNav from './AccNav';
-import { CartContext } from './CartContext';
+import { useCart } from './CartContext';
 import { sort } from '../services/tools';
 import img from '../styling/images/shopping-cart.png';
 import img2 from '../styling/images/user.png';
@@ -13,7 +13,7 @@ import '../styling/order.css';
 export default function Order() {
   const orderData = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : [];
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   const [message, setMessage] = useState('');
 
   const { pathname } = window.location;

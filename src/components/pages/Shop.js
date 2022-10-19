@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
 import Zoom from 'react-reveal/Zoom';
 import Bounce from 'react-reveal/Bounce';
 import * as apiCalls from '../../services/services';
-import { CartContext } from '../CartContext';
+import { useCart } from '../CartContext';
 import '@szhsin/react-menu/dist/core.css';
 import img from '../../styling/images/shopping-cart.png';
 import img2 from '../../styling/images/user.png';
@@ -13,7 +13,7 @@ import '../../styling/shop.css';
 
 function Shop() {
   const [message, setMessage] = useState('');
-  const { cart } = useContext(CartContext);
+  const cart = useCart();
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
 
   return (
@@ -82,7 +82,7 @@ function Shop() {
             <Bounce>
               <Link to="/shop/cart" className="cart-btn">
                 <img src={img} alt="cart icon" />
-                <span className="cart-counter">{cart.length}</span>
+                <span className="cart-counter">{cart !== undefined ? cart.length : 0}</span>
               </Link>
             </Bounce>
           </section>
