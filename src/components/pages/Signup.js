@@ -36,15 +36,15 @@ function Signup() {
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li />
-                <a className="dropdown-item" href="/shop/categoryView/1">LIVING ROOM</a>
+                <Link className="dropdown-item" to="/shop/categoryView/1">LIVING ROOM</Link>
                 <li />
-                <a className="dropdown-item" href="/shop/categoryView/2">DINING & KITCHEN</a>
+                <Link className="dropdown-item" to="/shop/categoryView/2">DINING & KITCHEN</Link>
                 <li />
-                <a className="dropdown-item" href="/shop/categoryView/3">BEDROOM</a>
+                <Link className="dropdown-item" to="/shop/categoryView/3">BEDROOM</Link>
                 <li />
-                <a className="dropdown-item" href="/shop/categoryView/4">STORAGE & MEDIA</a>
+                <Link className="dropdown-item" to="/shop/categoryView/4">STORAGE & MEDIA</Link>
                 <li />
-                <a className="dropdown-item" href="/shop/categoryView/5">OFFICE</a>
+                <Link className="dropdown-item" to="/shop/categoryView/5">OFFICE</Link>
               </ul>
             </div>
             <Link to="/contact">Contact</Link>

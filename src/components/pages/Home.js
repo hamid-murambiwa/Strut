@@ -87,7 +87,7 @@ function Home() {
               </div>
               {categories.length !== 0 ? (
                 categories.data.map((category) => (
-                  <Link to={`shop/${category.route}`} className="carousel-item" key={category.id}>
+                  <Link to={`/shop/categoryView/${category.id}`} className="carousel-item" key={category.id}>
                     <section id="carousel-content" style={{ backgroundImage: `url(${category.image})` }}>
                       <h3>{category.name}</h3>
                     </section>

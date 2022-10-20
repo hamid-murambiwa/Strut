@@ -56,7 +56,7 @@ export default function CategoryView() {
             furniture.map((item, index) => (
               (item.category_id === Page()) ? (
                 <Slide bottom key={item.id}>
-                  <a href={`/shop/${item.id}`} className="grid-item">
+                  <Link to={`/shop/${item.id}`} className="grid-item">
                     <section id="grid-content">
                       <img src={isActive1.activeObject === index ? (item.b_image) : (item.a_image)} alt={`${item.name}`} onMouseEnter={() => { toggleActive(index); }} onMouseLeave={() => { setIsActive1({ ...isActive1, activeObject: null }); }} onTouchStart={() => { toggleActive(index); }} onTouchEnd={() => { setIsActive1({ ...isActive1, activeObject: null }); }} />
                       <p>{item.name}</p>
@@ -65,7 +65,7 @@ export default function CategoryView() {
                         {sort(item.price)}
                       </p>
                     </section>
-                  </a>
+                  </Link>
                 </Slide>
               ) : (null)
             ))

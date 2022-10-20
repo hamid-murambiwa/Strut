@@ -28,11 +28,11 @@ function About() {
                 Furniture Categories
               </button>
               <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <a className="dropdown-item" href="/shop/categoryView/1">LIVING ROOM</a>
-                <a className="dropdown-item" href="/shop/categoryView/2">DINING & KITCHEN</a>
-                <a className="dropdown-item" href="/shop/categoryView/3">BEDROOM</a>
-                <a className="dropdown-item" href="/shop/categoryView/4">STORAGE & MEDIA</a>
-                <a className="dropdown-item" href="/shop/categoryView/5">OFFICE</a>
+                <Link className="dropdown-item" to="/shop/categoryView/1">LIVING ROOM</Link>
+                <Link className="dropdown-item" to="/shop/categoryView/2">DINING & KITCHEN</Link>
+                <Link className="dropdown-item" to="/shop/categoryView/3">BEDROOM</Link>
+                <Link className="dropdown-item" to="/shop/categoryView/4">STORAGE & MEDIA</Link>
+                <Link className="dropdown-item" to="/shop/categoryView/5">OFFICE</Link>
               </ul>
             </div>
             <Link to="/contact">Contact</Link>

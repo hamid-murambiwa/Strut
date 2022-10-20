@@ -83,7 +83,7 @@ function ProductDisplay() {
         <Link to="/shop">FURNITURE</Link>
         {' '}
         /
-        <a href={`/shop/categoryView/${category}`}>{findCategoryName()}</a>
+        <Link to={`/shop/categoryView/${category}`}>{findCategoryName()}</Link>
       </div>
       <div className="message">
         {message}
