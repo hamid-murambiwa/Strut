@@ -55,6 +55,7 @@ export const CartProvider = ({ children }) => {
     } else {
       item.quantity = quantity;
       item.price *= quantity;
+      console.log(item.price);
       cart.push(item);
       setCart(cart);
       const data = JSON.stringify(cart);

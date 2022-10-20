@@ -110,7 +110,13 @@ function ProductDisplay() {
                   <button type="button" className="q-btn" onClick={() => decrement(quantity, setQuantity)}>
                     -
                   </button>
-                  <p>{quantity}</p>
+                  <input type="number" onKeyDown={(e) => {
+                    if (e.keyCode === 38) {
+                      increment(quantity, setQuantity);
+                    } else if (e.keyCode === 40) {
+                      decrement(quantity, setQuantity);
+                    }
+                  }} value={quantity} min="1" max="2000" />
                   <button type="button" className="q-btn" onClick={() => increment(quantity, setQuantity)}>
                     +
                   </button>

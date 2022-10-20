@@ -40,6 +40,7 @@
 
 .delete-cart-btn {
   display: flex;
+  justify-content: center;
   border: none;
   background-color: transparent;
   text-align: center;
@@ -54,6 +55,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.cart-settings strong {
+  text-align: center;
 }
 
 .cart-summary {
@@ -145,6 +150,12 @@
 .c-btn {
   text-decoration: none;
   color: white !important;
+}
+
+#quantity-value {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px) {

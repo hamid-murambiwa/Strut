@@ -128,7 +128,7 @@ function Cart() {
                   <button type="button" className="q-btn" onClick={() => increment(cart.id)}>
                     +
                   </button>
-                  <p>{cart.quantity}</p>
+                  <p id="quantity-value">{cart.quantity}</p>
                   <button type="button" className="q-btn" onClick={() => decrement(cart.id)}>
                     -
                   </button>

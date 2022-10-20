@@ -44,11 +44,26 @@
   font-weight: 200;
 }
 
-.quantity p {
+.quantity input {
+  text-align: center;
   border: 1px solid black;
   padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 2px;
+  padding-right: 2px;
+  min-width: 17px;
+  max-width: 63px;
+  -webkit-appearance: none;
+  font-weight: bold;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity input:focus {
+  outline: none;
 }
 
 .rating {
