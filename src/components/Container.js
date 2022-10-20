@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Main from './pages/shopPages/Main';
+import Main from './pages/shop pages/Main';
 import Shop from './pages/Shop';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ProductDisplay from './pages/ProductDisplay';
-import Cart from './pages/shopPages/Cart';
+import Cart from './pages/shop pages/Cart';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Account from './pages/Account';
 import Reset from './pages/Resetpassword';
 import ResetConfirmation from './pages/confirmations/ResetConfirmation';
-import PayPal from './pages/shopPages/PayPal';
-import Orders from './pages/shopPages/Orders';
-import Order from './pages/shopPages/Order';
+import PayPal from './pages/shop pages/PayPal';
+import Orders from './pages/shop pages/Orders';
+import Order from './pages/shop pages/Order';
 import CategoryView from './pages/CategoryView';
 import { CartProvider } from './CartContext';
 

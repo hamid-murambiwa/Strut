@@ -69,7 +69,6 @@ export function componentDidMount(findId, Page, averageRating, reviews, setRevie
         return Promise.reject(error);
       } else {
         reviews = data;
-        console.log(data);
         setReviews(data);
         handleAverage(reviews, averageRating, setAverageRating);
       }
@@ -169,7 +168,6 @@ export const handleReview = async (e, rating, title, reviewDes, userData, setTit
       body: JSON.stringify(data),
     });
     if (res.statusText === 'Created') {
-      console.log(res);
       setTitle('');
       setReviewDes('');
       setMessage('Review created successfully');

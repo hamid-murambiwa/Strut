@@ -7,7 +7,7 @@ import img from '../../styling/images/shopping-cart.png';
 import img2 from '../../styling/images/user.png';
 import img3 from '../../styling/images/lock.png';
 import MobileHeader from '../Header';
-import AccNav from './shopPages/AccNav';
+import AccNav from './shop pages/AccNav';
 import '../../styling/account.css';
 
 function Account() {

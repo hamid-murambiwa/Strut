@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import StarsRating from 'react-star-rate';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,7 +6,7 @@ import ImageGallery from 'react-image-gallery';
 import { getAllFurniture } from '../../redux/furnitureItems/furniture';
 import { useCartAdd } from '../CartContext';
 import {
-  Page, findId, findRoute, findCategoryName, getDate, sort, decrement, increment,
+  Page, findId, findCategoryName, getDate, sort, decrement, increment,
 } from '../../services/tools';
 import * as apiCalls from '../../services/services';
 import img from '../../styling/images/button.png';
@@ -35,19 +35,19 @@ function ProductDisplay() {
   const add = useCartAdd();
 
   const [averageRating, setAverageRating] = useState(0);
+  const [category, setCategory] = useState(0);
 
   const dispatch = useDispatch();
   const furniture = useSelector((state) => state.furnitureReducer);
+
   useEffect(() => {
     dispatch(getAllFurniture());
     /* eslint-disable */
     apiCalls.componentDidMount(findId, Page, averageRating, reviews, setReviews, setMessage, message, setAverageRating);
   }, [dispatch]);
 
-  console.log(reviews);
-
-  furniture.map((item) => (
-    (item.id === Page()) ? (
+  furniture.map((item) => {
+    if (item.id === Page()) {
       images = [
         {
           original: item.a_image,
@@ -66,8 +66,16 @@ function ProductDisplay() {
           thumbnail: item.d_image,
         },
       ]
-    ) : (null)
-  ));
+    }
+  });
+
+  useMemo(() => {
+      furniture.map((item) => {
+        if (item.id === Page()) {
+      setCategory(item.category_id);
+    }
+    });
+  }, [furniture]);
 
   return (
     <div id="container3">
@@ -75,7 +83,7 @@ function ProductDisplay() {
         <Link to="/shop">FURNITURE</Link>
         {' '}
         /
-        <a href={findRoute()}>{findCategoryName()}</a>
+        <a href={`/shop/categoryView/${category}`}>{findCategoryName()}</a>
       </div>
       <div className="message">
         {message}
@@ -83,20 +91,20 @@ function ProductDisplay() {
       <section id="prod-container">
         <ImageGallery items={images} showPlayButton={false} thumbnailPosition="left" showNav={false} width="100" />
         {furniture.length !== 0 ? (
-          furniture.map((item) => (
-            (item.id === Page()) ? (
-              <div className="p-c-con" key={item.id}>
-                <strong>{item.name}</strong>
+          furniture.map((furniture) => (
+            (furniture.id === Page()) ? (
+              <div className="p-c-con" key={furniture.id}>
+                <strong>{furniture.name}</strong>
                 <div>
                   R
-                  {sort(item.price)}
+                  {sort(furniture.price)}
                 </div>
                 <strong>Details</strong>
-                <p>{item.description}</p>
+                <p>{furniture.description}</p>
                 <div>
-                  <li>{item.designer}</li>
-                  <li>{item.material}</li>
-                  <li>{item.made}</li>
+                  <li>{furniture.designer}</li>
+                  <li>{furniture.material}</li>
+                  <li>{furniture.made}</li>
                 </div>
                 <div className="quantity">
                   <button type="button" className="q-btn" onClick={() => decrement(quantity, setQuantity)}>
@@ -107,7 +115,7 @@ function ProductDisplay() {
                     +
                   </button>
                 </div>
-                <button type="button" className="c-btn" onClick={() => add(item, quantity, setMessage, Page)}>
+                <button type="button" className="c-btn" onClick={() => add(furniture, quantity, setMessage, Page)}>
                   ADD TO CART
                 </button>
                 <div className={reviewBtn ? 'rating-con+ inactiveBTN' : 'rating-con+ activeBTN'} onClick={() => setReviewBtn(true)}>
@@ -178,8 +186,8 @@ function ProductDisplay() {
                     <div className="modal-dialog">
                       <section className="modal-sub-con">
                         <div className="side-bar">
-                          <img className="modal-img" src={item.a_image} alt={`Image of the ${item.name} product`} />
-                          <strong>{item.name}</strong>
+                          <img className="modal-img" src={furniture.a_image} alt={`Image of the ${furniture.name} product`} />
+                          <strong>{furniture.name}</strong>
                         </div>
                         <div className="modal-content">
                           <div className="modal-header">
@@ -253,7 +261,7 @@ function ProductDisplay() {
               </div>
             ) : (null)
           ))
-        ) : (
+              ) : (
         <div className="s-con">
             <div className="spinner-border" role="status">
                 <span className="visually-hidden">Loading...</span>
