@@ -123,6 +123,8 @@
   color: black !important;
   padding-left: 10px;
   padding-right: 10px;
+  border-left: 2px solid grey;
+  margin-bottom: 10px;
 }
 
 .dropdown-item:hover {
