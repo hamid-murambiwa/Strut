@@ -63,17 +63,20 @@ export const CartProvider = ({ children }) => {
     }
     setTimeout(() => {
       window.location.href = `/shop/${Page()}`;
-    }, 150);
-    setMessage('Item added successfully');
+    }, 700);
+    setMessage('Item added successfully to the cart');
   }
 
-  function removeFromCart(index) {
+  function removeFromCart(index, setMessage) {
     let newCart = cart;
     newCart.splice(index, 1);
     setCart(newCart);
     const data = JSON.stringify(newCart);
     localStorage.setItem('cart', data);
-    window.location.reload();
+    setMessage('Item has been removed');
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   }
 
 

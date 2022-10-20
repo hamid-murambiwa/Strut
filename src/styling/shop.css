@@ -5,6 +5,9 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 20px;
+  background-color: #f5f5f5;
+  box-shadow: 1px 1px 1px #c4c4c4;
+  margin-bottom: 10px;
 }
 
 .cart-btn {
@@ -75,6 +78,8 @@
   padding-right: 1.5%;
   padding-bottom: 1.5%;
   position: fixed;
+  background-color: #f4f4f4;
+  box-shadow: 5px 5px 5px #afafaf;
 }
 
 .shop-navigation nav {

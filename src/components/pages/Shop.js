@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Slide from 'react-reveal/Slide';
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu';
@@ -16,7 +16,7 @@ function Shop() {
   const cart = useCart();
   const [userData] = useState(JSON.parse(localStorage.getItem('user')) === null ? { logged_in: false } : JSON.parse(localStorage.getItem('user')));
 
-  return (
+  return useMemo(() => (
     <div>
       <section id="shop-container">
         <div className="s-b-con">
@@ -105,7 +105,7 @@ function Shop() {
         <Outlet />
       </div>
     </div>
-  );
+  ), [cart]);
 }
 
 export default Shop;

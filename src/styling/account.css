@@ -1,3 +1,10 @@
+.container31 {
+  min-width: 82%;
+  max-width: 100%;
+  position: absolute;
+  right: 2.5%;
+}
+
 .passwordupdate p {
   font-weight: 300 !important;
 }
@@ -62,17 +69,18 @@
 
 .adjust-nav {
   position: fixed;
-  top: 14%;
+  top: 16%;
+  left: 20px;
   border-radius: 5px;
   border-right: 1px solid rgb(192, 192, 192);
   border-top: 1px solid rgb(192, 192, 192);
   height: auto;
-  min-width: 20%;
+  min-width: 15%;
 }
 
 .s-o {
   display: flex;
-  padding: 0 3.13px !important;
+  padding: 0 10px !important;
   background-color: transparent !important;
   border: none !important;
 }

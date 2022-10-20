@@ -150,7 +150,7 @@ export function handleAverage(reviews, averageRating, setAverageRating) {
   }
 }
 
-export const handleReview = async (e, rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage) => {
+export const handleReview = async (e, rating, title, reviewDes, userData, setTitle, setReviewDes, setMessage, setErrorMessage) => {
   e.preventDefault();
   const data = {
     overal_rating: rating,
@@ -173,7 +173,7 @@ export const handleReview = async (e, rating, title, reviewDes, userData, setTit
       setMessage('Review created successfully');
       window.location.reload();
     } else {
-      setMessage('Some error occured');
+      setErrorMessage('Some error occured while trying to connect to the database');
     }
     } catch (err) {
       console.log(err);
@@ -219,6 +219,7 @@ export const handleSignup = async (
       setTimeout(() => {
         window.location.replace('/login');
       }, 1000);
+      setErrorMessage('');
     } else {
       setErrorMessage(errors['errors']);
     }
@@ -230,7 +231,7 @@ export const handleSignup = async (
   }
 };
 
-export const handleSignin = async (e, username, password, setErrorMessage) => {
+export const handleSignin = async (e, username, password, setErrorMessage, setLoad) => {
   setErrorMessage('');
   let response = [];
   e.preventDefault();
@@ -240,7 +241,7 @@ export const handleSignin = async (e, username, password, setErrorMessage) => {
     password_confirmation: password
     }
   };
-    setErrorMessage('Loading...');
+    setLoad(true);
   try {
     const res = await fetch(`${BACK_END_URL}/login`, {
       method: 'POST',
@@ -256,16 +257,19 @@ export const handleSignin = async (e, username, password, setErrorMessage) => {
       setTimeout(() => {
       window.history.back()
       }, 500);
+      setLoad(false);
     } else {
       setErrorMessage([response['errors']]);
+      setLoad(false);
     }
   } catch (err) {
     setErrorMessage([response['errors']]);
   }
 }
 
-export const handleEmail = async (e, newEmail, confirmNewEmail, userData, setErrorMessage) => {
+export const handleEmail = async (e, newEmail, confirmNewEmail, userData, setErrorMessage, setLoad) => {
   setErrorMessage('');
+  setLoad(true);
   let response = [];
   e.preventDefault();
   const data = {
@@ -282,22 +286,25 @@ export const handleEmail = async (e, newEmail, confirmNewEmail, userData, setErr
     }).then(response => response.json())
     .then(resp => response = resp);
     if (response["status"] === 'updated') {
-      // setMsg('User logged in successfully');
       setTimeout(() => {
       window.history.back()
       }, 1000);
+      setLoad(false);
     } else {
       setErrorMessage([response['errors']]);
+      setLoad(false);
     }
   } catch (err) {
     console.log(err);
+    setLoad(false);
   }
   } else {
     setErrorMessage(['Your new email and new email confirmation should match']);
+    setLoad(false);
   }
 }
 
-export const handlePassword = async (e, password, newPassword, userData, setPassMessage) => {
+export const handlePassword = async (e, password, newPassword, userData, setMessage, setPassMessage, setLoad2) => {
   setPassMessage('');
   let response = [];
   e.preventDefault();
@@ -317,18 +324,24 @@ export const handlePassword = async (e, password, newPassword, userData, setPass
     }).then(response => response.json())
     .then(resp => response = resp);
     if (response["status"] === 'updated') {
+      setLoad2(false);
       setTimeout(() => {
       window.history.back()
       }, 1000);
+      setMessage("You have successfully changed your password!")
     } else {
-      setPassMessage([response['errors']]);
+      setLoad2(false);
+      console.log([response['errors']]);
+      setPassMessage([response['errors']][0].length !== 0 ? ([response['errors']]) : 'A problem has occured. Please try again!')
     }
   } catch (err) {
+    setLoad2(false);
     console.log(err);
   }
   } else {
+    setLoad2(false);
     console.log('error');
-    setPassMessage(['The old password and the new password should not match']);
+    setPassMessage(['The old password and the new password should not match!']);
   }
 }
 
@@ -358,14 +371,14 @@ export const handlePasswordReset = async (e, token, password, passwordConfirmati
       setMessage('Password changed successfully')
     } else {
       e.preventDefault();
-      setErrorMessage("Your reset link has expired has expired. Please try again");
+      setErrorMessage("Your reset link has expired has expired. Please try again!");
     }
   } catch (err) {
     console.log(err);
   }
   } else {
     console.log('error');
-    setErrorMessage('The old password and the password confirmation should match');
+    setErrorMessage('The old password and the password confirmation should match!');
   }
 }
 

@@ -1,5 +1,12 @@
 .login-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65vh;
+}
+
+.l-c-2 {
+  display: flex;
   justify-content: center;
   font-size: x-small;
   border-top: 1px solid rgb(192, 192, 192);
@@ -119,10 +126,15 @@
 
   .login-container {
     flex-direction: column;
+    margin-top: 20vh;
   }
 
   .signup-link-container {
     min-width: 100%;
     max-width: 100%;
+  }
+
+  .l-c-2 {
+    flex-direction: column;
   }
 }

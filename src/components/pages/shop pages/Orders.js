@@ -34,7 +34,7 @@ export default function Orders() {
   // eslint-disable-next-line
   const moment = require('moment-timezone');
   return (
-    <div id="container3">
+    <div id="container31">
       <section className="about-nav-container">
         <AccNav />
         <div className="a-n-con">
@@ -76,8 +76,8 @@ export default function Orders() {
                     </strong>
 
                   </li>
-                  <li><Link className="dropdown-item" to="/account">ACCOUNT SETTINGS</Link></li>
-                  <li><Link className="dropdown-item" to="/orders">MY ORDERS</Link></li>
+                  <li><Link id="order-links" to="/account">ACCOUNT SETTINGS</Link></li>
+                  <li><Link id="order-links" to="/orders">MY ORDERS</Link></li>
                   <li><button type="button" className="s-o" onClick={() => apiCalls.handleSignout(setMessage)}>LOGOUT</button></li>
                 </ul>
               ) : (
@@ -94,7 +94,7 @@ export default function Orders() {
           </section>
         </div>
       </section>
-      <section className="order-table">
+      <section className="order-info">
         <h2>Orders List</h2>
         <div className="message">{message ? <p>{message}</p> : null}</div>
         <table id="o-table">

@@ -44,6 +44,10 @@
   font-weight: 200;
 }
 
+.bi {
+  margin-right: 15px;
+}
+
 .quantity input {
   text-align: center;
   border: 1px solid black;

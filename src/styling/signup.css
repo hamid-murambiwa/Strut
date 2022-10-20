@@ -3,7 +3,7 @@
   justify-content: center;
   width: 100%;
   border-top: 1px solid rgb(192, 192, 192);
-  padding-top: 5vh;
+  padding-top: 2vh;
   font-size: smaller;
 }
 
@@ -13,6 +13,7 @@
   min-width: 30vw;
   max-width: 30vw;
   gap: 15px;
+  margin-bottom: 15vh;
 }
 
 .Signup-form-container strong {
@@ -64,8 +65,9 @@
 }
 
 @media screen and (max-width: 600px) {
-.Signup-form-container {
+  .Signup-form-container {
     min-width: 65% !important;
     max-width: 65% !important;
-}
+    margin-top: 10vh;
+  }
 }
