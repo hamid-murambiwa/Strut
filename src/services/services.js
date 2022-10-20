@@ -306,6 +306,7 @@ export const handleEmail = async (e, newEmail, confirmNewEmail, userData, setErr
 
 export const handlePassword = async (e, password, newPassword, userData, setMessage, setPassMessage, setLoad2) => {
   setPassMessage('');
+  setLoad2(true);
   let response = [];
   e.preventDefault();
   const data = { user:{

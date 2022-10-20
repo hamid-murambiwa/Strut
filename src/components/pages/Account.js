@@ -228,7 +228,7 @@ function Account() {
                   />
                 </div>
 
-                <button type="submit" onClick={() => setLoad2(true)}>APPLY CHANGES</button>
+                <button type="submit">APPLY CHANGES</button>
               </form>
             </section>
           </div>
